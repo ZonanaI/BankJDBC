@@ -12,71 +12,36 @@ import java.util.Properties;
 
 public class ConnectionPool {
     private static final Logger log = LogManager.getLogger(ConnectionPool.class);
-    Properties properties= new Properties();
+    static Properties properties= new Properties();
     public static final int MAX_POOL_SIZE = 5;
 
-    private static ConnectionPool dataSource;
-    private final BasicDataSource basicDataSource;
+    private static BasicDataSource dataSource;
 
-    private ConnectionPool(){
+    public static BasicDataSource getDataSource (){
         try {
             properties.load(new FileInputStream("src/main/resources/configuration.properties"));
         } catch (IOException e){
             log.error(e);
         }
-        basicDataSource = new BasicDataSource();
-        basicDataSource.setDriverClassName(properties.getProperty("DRIVER"));
-        basicDataSource.setUsername(properties.getProperty("USER"));
-        basicDataSource.setPassword(properties.getProperty("PASS"));
-        basicDataSource.setUrl(properties.getProperty("URL"));
+        if (dataSource == null){
+            dataSource = new BasicDataSource();
+            dataSource.setDriverClassName(properties.getProperty("DRIVER"));
+            dataSource.setUsername(properties.getProperty("USER"));
+            dataSource.setPassword(properties.getProperty("PASS"));
+            dataSource.setUrl(properties.getProperty("URL"));
 
-        basicDataSource.setMinIdle(1);
-        basicDataSource.setMaxIdle(MAX_POOL_SIZE);
-        basicDataSource.setMaxTotal(MAX_POOL_SIZE);
-        basicDataSource.setMaxWaitMillis(-1);
-
-    }
-
-    synchronized public static ConnectionPool getInstance() {
-        if (dataSource == null) {
-            dataSource = new ConnectionPool();
+            dataSource.setMinIdle(1);
+            dataSource.setMaxIdle(MAX_POOL_SIZE);
+            dataSource.setMaxTotal(MAX_POOL_SIZE);
+            dataSource.setMaxOpenPreparedStatements(200);
+            dataSource.setMaxWaitMillis(-1);
         }
         return dataSource;
     }
 
-    private Connection getConnection() throws SQLException {
-        return this.basicDataSource.getConnection();
+
+    public Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
     }
 
-    synchronized public Connection openAndPoolConnection() throws SQLException {
-
-        while (basicDataSource.getNumActive() == MAX_POOL_SIZE){
-            try {
-                log.info("I´m waiting till a connection is available");
-                wait();
-            } catch (InterruptedException e){
-                Thread.currentThread().interrupt();
-            }
-        }
-        Connection connection = dataSource.getConnection();
-        log.info("There are: " + basicDataSource.getNumIdle() + " idle connections");
-        log.info("There are: " + basicDataSource.getNumActive() + " active connections");
-        notifyAll();
-        return connection;
-    }
-
-    synchronized public void closeConnection(Connection connection) throws SQLException {
-        connection.close();
-        notifyAll();
-    }
-    public void closeAllIdleConnections () {
-        log.info("There are: " + basicDataSource.getNumIdle() + " idle connections");
-        log.info("There are: " + basicDataSource.getNumActive() + " active connections");
-        try {
-            basicDataSource.close();
-        } catch (SQLException e) {
-            log.error(e);
-        }
-        log.info("All connections were released");
-    }
 }
