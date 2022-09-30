@@ -3,7 +3,7 @@ package com.solvd.bankjdbc.models;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class FixedTermDeposit {
+public class FixedTermDeposit implements Comparable <FixedTermDeposit> {
     private int id;
     private BigDecimal amount;
     private BigDecimal rate;
@@ -42,5 +42,9 @@ public class FixedTermDeposit {
 
     public void setFromDate(LocalDate fromDate) {
         this.fromDate = fromDate;
+    }
+    @Override
+    public int compareTo(FixedTermDeposit other) {
+        return Integer.compare(this.id,other.id);
     }
 }

@@ -3,17 +3,11 @@ package com.solvd.bankjdbc.models;
 import java.math.BigDecimal;
 import java.util.Set;
 
-public class Account {
+public class Account implements Comparable<Account>{
     private int id;
     private int accountTypeID;
     private int accountStatusID;
     private int accountNumberID;
-
-    private Set<Integer> customerIds;
-    private Set<Integer> userLoginIds;
-    private Set<Integer> carIds;
-    private Set<Integer> loanIds;
-    private Set<Integer> fixedTermDepositIds;
     private BigDecimal balance;
     private String accountType;
     private String accountStatus;
@@ -56,46 +50,6 @@ public class Account {
 
     public void setAccountNumberID(int accountNumberID) {
         this.accountNumberID = accountNumberID;
-    }
-
-    public Set<Integer> getCustomerIds() {
-        return customerIds;
-    }
-
-    public void setCustomerIds(Set<Integer> customerIds) {
-        this.customerIds = customerIds;
-    }
-
-    public Set<Integer> getUserLoginIds() {
-        return userLoginIds;
-    }
-
-    public void setUserLoginIds(Set<Integer> userLoginIds) {
-        this.userLoginIds = userLoginIds;
-    }
-
-    public Set<Integer> getCarIds() {
-        return carIds;
-    }
-
-    public void setCarIds(Set<Integer> carIds) {
-        this.carIds = carIds;
-    }
-
-    public Set<Integer> getLoanIds() {
-        return loanIds;
-    }
-
-    public void setLoanIds(Set<Integer> loanIds) {
-        this.loanIds = loanIds;
-    }
-
-    public Set<Integer> getFixedTermDepositIds() {
-        return fixedTermDepositIds;
-    }
-
-    public void setFixedTermDepositIds(Set<Integer> fixedTermDepositIds) {
-        this.fixedTermDepositIds = fixedTermDepositIds;
     }
 
     public BigDecimal getBalance() {
@@ -168,5 +122,10 @@ public class Account {
 
     public void setFixedTermDepositSet(Set<FixedTermDeposit> fixedTermDepositSet) {
         this.fixedTermDepositSet = fixedTermDepositSet;
+    }
+
+    @Override
+    public int compareTo(Account other) {
+        return Integer.compare(this.id,other.id);
     }
 }

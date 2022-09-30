@@ -1,8 +1,10 @@
 package com.solvd.bankjdbc.models;
 
+import com.solvd.bankjdbc.dao.mysql.CustomerDAO;
+
 import java.util.Set;
 
-public class Customer {
+public class Customer implements Comparable <Customer> {
     private int id;
     private Set<Integer> accountIds;
     private String firstName;
@@ -93,5 +95,10 @@ public class Customer {
 
     public void setAccountsSet(Set<Account> accountSet) {
         this.accountSet = accountSet;
+    }
+
+    @Override
+    public int compareTo(Customer other) {
+        return Integer.compare(this.id,other.id);
     }
 }

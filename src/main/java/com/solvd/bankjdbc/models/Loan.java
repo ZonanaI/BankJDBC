@@ -3,7 +3,7 @@ package com.solvd.bankjdbc.models;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Loan {
+public class Loan implements Comparable<Loan> {
     private int id;
     private BigDecimal amount;
     private BigDecimal rate;
@@ -51,5 +51,9 @@ public class Loan {
 
     public void setFromDate(LocalDate fromDate) {
         this.fromDate = fromDate;
+    }
+    @Override
+    public int compareTo(Loan other) {
+        return Integer.compare(this.id,other.id);
     }
 }

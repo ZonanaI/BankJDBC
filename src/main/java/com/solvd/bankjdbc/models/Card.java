@@ -2,11 +2,11 @@ package com.solvd.bankjdbc.models;
 
 import java.time.LocalDate;
 
-public class Card {
+public class Card implements Comparable <Card> {
     private int id;
     private int cardNumberId;
     private int cardTypeId;
-    private LocalDate fromDate;
+    private int accountId;
     private LocalDate expDate;
     private String securityNumber;
     private String cardNumber;
@@ -38,12 +38,12 @@ public class Card {
         this.cardTypeId = cardTypeId;
     }
 
-    public LocalDate getFromDate() {
-        return fromDate;
+    public int getAccountId() {
+        return accountId;
     }
 
-    public void setFromDate(LocalDate fromDate) {
-        this.fromDate = fromDate;
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public LocalDate getExpDate() {
@@ -76,5 +76,9 @@ public class Card {
 
     public void setCardType(String cardType) {
         this.cardType = cardType;
+    }
+    @Override
+    public int compareTo(Card other) {
+        return Integer.compare(this.id, other.id);
     }
 }

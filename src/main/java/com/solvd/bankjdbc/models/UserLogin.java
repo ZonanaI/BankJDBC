@@ -2,7 +2,7 @@ package com.solvd.bankjdbc.models;
 
 import java.util.Set;
 
-public class UserLogin {
+public class UserLogin implements Comparable<UserLogin> {
 
     private int id;
     private String username;
@@ -41,5 +41,10 @@ public class UserLogin {
 
     public void setSecurityQuestionsSet(Set<UserSecurityQuestion> securityQuestionsSet) {
         this.securityQuestionsSet = securityQuestionsSet;
+    }
+
+    @Override
+    public int compareTo(UserLogin other) {
+        return Integer.compare(this.id,other.id);
     }
 }

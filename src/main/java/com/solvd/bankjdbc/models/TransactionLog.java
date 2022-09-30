@@ -3,7 +3,7 @@ package com.solvd.bankjdbc.models;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class TransactionLog {
+public class TransactionLog implements Comparable<TransactionLog> {
 
     private int id;
     private LocalDateTime transactionDate;
@@ -70,5 +70,10 @@ public class TransactionLog {
 
     public void setTransactionType(TransactionType transactionType) {
         this.transactionType = transactionType;
+    }
+
+    @Override
+    public int compareTo(TransactionLog other) {
+        return Integer.compare(this.id,other.id);
     }
 }
