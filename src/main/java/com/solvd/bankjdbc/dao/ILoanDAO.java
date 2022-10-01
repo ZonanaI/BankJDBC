@@ -6,5 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 public interface ILoanDAO extends IBaseDao<Loan> {
-    Set<Loan> getByAccountId();
+    Set<Loan> getByAccountId(int id);
+    Set<Loan> getAll();
 }

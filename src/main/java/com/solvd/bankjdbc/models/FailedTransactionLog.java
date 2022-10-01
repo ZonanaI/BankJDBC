@@ -4,8 +4,9 @@ import java.time.LocalDateTime;
 
 public class FailedTransactionLog {
     private int id;
+    private int failedTransactionErrorTypeId;
     private LocalDateTime failedTransactionTime;
-    private String errorDescription;
+    private String errorType;
 
     //Getters and setters
 
@@ -17,6 +18,14 @@ public class FailedTransactionLog {
         this.id = id;
     }
 
+    public int getFailedTransactionErrorTypeId() {
+        return failedTransactionErrorTypeId;
+    }
+
+    public void setFailedTransactionErrorTypeId(int failedTransactionErrorTypeId) {
+        this.failedTransactionErrorTypeId = failedTransactionErrorTypeId;
+    }
+
     public LocalDateTime getFailedTransactionTime() {
         return failedTransactionTime;
     }
@@ -25,11 +34,11 @@ public class FailedTransactionLog {
         this.failedTransactionTime = failedTransactionTime;
     }
 
-    public String getErrorDescription() {
-        return errorDescription;
+    public String getErrorType() {
+        return errorType;
     }
 
-    public void setErrorDescription(String errorDescription) {
-        this.errorDescription = errorDescription;
+    public void setErrorType(String errorType) {
+        this.errorType = errorType;
     }
 }

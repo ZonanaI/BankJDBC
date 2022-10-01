@@ -6,5 +6,6 @@ import java.util.List;
 import java.util.Set;
 
 public interface IFixedTermDepositDAO extends IBaseDao<FixedTermDeposit> {
-    Set<FixedTermDeposit> getByAccountId();
+    Set<FixedTermDeposit> getAll();
+    Set<FixedTermDeposit> getByAccountId(int id);
 }

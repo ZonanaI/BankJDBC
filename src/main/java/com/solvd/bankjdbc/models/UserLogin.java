@@ -5,6 +5,7 @@ import java.util.Set;
 public class UserLogin implements Comparable<UserLogin> {
 
     private int id;
+    private int userNameId;
     private String username;
     private String password;
     private Set<UserSecurityQuestion> securityQuestionsSet;
@@ -17,6 +18,14 @@ public class UserLogin implements Comparable<UserLogin> {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getUserNameId() {
+        return userNameId;
+    }
+
+    public void setUserNameId(int userNameId) {
+        this.userNameId = userNameId;
     }
 
     public String getUsername() {

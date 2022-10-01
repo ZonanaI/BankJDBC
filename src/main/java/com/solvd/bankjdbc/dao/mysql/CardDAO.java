@@ -123,6 +123,7 @@ public class CardDAO extends AbstractMySQL implements ICardDAO {
             ps.setInt(3, card.getCardNumberId());
             ps.setInt(4, card.getCardTypeId());
             ps.setInt(5, card.getAccountId());
+            ps.setInt(6, card.getId());
             rs = ps.executeQuery();
             rs.next();
         } catch (SQLException e) {
@@ -221,6 +222,7 @@ public class CardDAO extends AbstractMySQL implements ICardDAO {
         try{
             c = getCp().getConnection();
             ps = c.prepareStatement(GET_BY_ACCOUNT_NUMBER_ID, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, accountId);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Card card = new Card();

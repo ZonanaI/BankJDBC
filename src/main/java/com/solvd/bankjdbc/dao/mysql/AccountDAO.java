@@ -6,8 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -31,14 +29,14 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
     private static final String GET_ALL = "SELECT Account.account_id, Account.balance, " +
             "Account.account_type_id, Account.account_status_id, Account.account_number_id, " +
             "AccountType.account_type, AccountStatus.account_status, AccountNumber.account_number  " +
-            "FROM Account" +
+            "FROM Account " +
             "LEFT JOIN AccountType ON Account.account_type_id = AccountType.account_type_id " +
             "LEFT JOIN AccountStatus ON Account.account_status_id = AccountStatus.account_status_id " +
             "LEFT JOIN AccountNumber ON Account.account_number_id = AccountNumber.account_number_id ";
     private static final String GET_BY_TYPE_ID = "SELECT Account.account_id, Account.balance, " +
             "Account.account_type_id, Account.account_status_id, Account.account_number_id, " +
             "AccountType.account_type, AccountStatus.account_status, AccountNumber.account_number  " +
-            "FROM Account" +
+            "FROM Account " +
             "LEFT JOIN AccountType ON Account.account_type_id = AccountType.account_type_id " +
             "LEFT JOIN AccountStatus ON Account.account_status_id = AccountStatus.account_status_id " +
             "LEFT JOIN AccountNumber ON Account.account_number_id = AccountNumber.account_number_id " +
@@ -46,7 +44,7 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
     private static final String GET_BY_STATUS_ID = "SELECT Account.account_id, Account.balance, " +
             "Account.account_type_id, Account.account_status_id, Account.account_number_id, " +
             "AccountType.account_type, AccountStatus.account_status, AccountNumber.account_number  " +
-            "FROM Account" +
+            "FROM Account " +
             "LEFT JOIN AccountType ON Account.account_type_id = AccountType.account_type_id " +
             "LEFT JOIN AccountStatus ON Account.account_status_id = AccountStatus.account_status_id " +
             "LEFT JOIN AccountNumber ON Account.account_number_id = AccountNumber.account_number_id " +
@@ -54,7 +52,7 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
     private static final String GET_BY_ACCOUNT_NUMBER_ID = "SELECT Account.account_id, Account.balance, " +
             "Account.account_type_id, Account.account_status_id, Account.account_number_id, " +
             "AccountType.account_type, AccountStatus.account_status, AccountNumber.account_number  " +
-            "FROM Account" +
+            "FROM Account " +
             "LEFT JOIN AccountType ON Account.account_type_id = AccountType.account_type_id " +
             "LEFT JOIN AccountStatus ON Account.account_status_id = AccountStatus.account_status_id " +
             "LEFT JOIN AccountNumber ON Account.account_number_id = AccountNumber.account_number_id " +
@@ -62,7 +60,7 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
     private static final String GET_BY_CUSTOMER_ID = "SELECT Account.account_id, Account.balance, " +
             "Account.account_type_id, Account.account_status_id, Account.account_number_id, " +
             "AccountType.account_type, AccountStatus.account_status, AccountNumber.account_number  " +
-            "FROM Account" +
+            "FROM Account " +
             "LEFT JOIN AccountType ON Account.account_type_id = AccountType.account_type_id " +
             "LEFT JOIN AccountStatus ON Account.account_status_id = AccountStatus.account_status_id " +
             "LEFT JOIN AccountNumber ON Account.account_number_id = AccountNumber.account_number_id " +
@@ -70,8 +68,8 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
             "WHERE CustomerAccount.customer_id = ?";
     private static final String GET_BY_USER_LOGIN_ID = "SELECT Account.account_id, Account.balance, " +
             "Account.account_type_id, Account.account_status_id, Account.account_number_id, " +
-            "AccountType.account_type, AccountStatus.account_status, AccountNumber.account_number  " +
-            "FROM Account" +
+            "AccountType.account_type, AccountStatus.account_status, AccountNumber.account_number " +
+            "FROM Account " +
             "LEFT JOIN AccountType ON Account.account_type_id = AccountType.account_type_id " +
             "LEFT JOIN AccountStatus ON Account.account_status_id = AccountStatus.account_status_id " +
             "LEFT JOIN AccountNumber ON Account.account_number_id = AccountNumber.account_number_id " +

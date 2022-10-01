@@ -1,6 +1,5 @@
 package com.solvd.bankjdbc.models;
 
-import com.solvd.bankjdbc.dao.mysql.CustomerDAO;
 
 import java.util.Set;
 

@@ -1,7 +1,9 @@
 package com.solvd.bankjdbc.models;
 
-public class UserSecurityQuestion {
+public class UserSecurityQuestion  implements Comparable<UserSecurityQuestion> {
     private int id;
+    private int userLoginId;
+    private int securityAnswerId;
     private String securityQuestion;
     private String securityAnswer;
 
@@ -14,6 +16,22 @@ public class UserSecurityQuestion {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getUserLoginId() {
+        return userLoginId;
+    }
+
+    public void setUserLoginId(int userLoginId) {
+        this.userLoginId = userLoginId;
+    }
+
+    public int getSecurityAnswerId() {
+        return securityAnswerId;
+    }
+
+    public void setSecurityAnswerId(int securityAnswerId) {
+        this.securityAnswerId = securityAnswerId;
     }
 
     public String getSecurityQuestion() {
@@ -30,5 +48,9 @@ public class UserSecurityQuestion {
 
     public void setSecurityAnswer(String securityAnswer) {
         this.securityAnswer = securityAnswer;
+    }
+    @Override
+    public int compareTo(UserSecurityQuestion other) {
+        return Integer.compare(this.id,other.id);
     }
 }

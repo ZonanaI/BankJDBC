@@ -1,13 +1,11 @@
 package com.solvd.bankjdbc.dao.mysql;
 
 import com.solvd.bankjdbc.dao.ICustomerDAO;
-import com.solvd.bankjdbc.models.Account;
 import com.solvd.bankjdbc.models.Customer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -18,25 +16,22 @@ public class CustomerDAO extends AbstractMySQL implements ICustomerDAO {
     private static final String CREATE_CUSTOMER = "INSERT INTO Customer (firs_name, last_name, " +
             "address, city, state, phone) VALUES (?,?,?,?,?,?)";
     private static final String GET_CUSTOMER_BY_ID = "SELECT customer_id, firs_name, last_name, " +
-            "address, city, state, phone" +
+            "address, city, state, phone " +
             "FROM Customer " +
-            "WHERE Customer.customer_id = ?";
+            "WHERE customer_id = ?";
     private static final String UPDATE_CUSTOMER = "UPDATE Customer SET firs_name = ?, last_name = ?, " +
             "address = ?, city = ?, state = ?, phone = ? WHERE customer_id = ?";
     private static final String DELETE_CUSTOMER = "DELETE FROM Customer WHERE customer_id = ?";
-    private static final String GET_ALL = "SELECT customer_id, firs_name, last_name, " +
-            "address, city, state, phone" +
+    private static final String GET_ALL = "SELECT customer_id, firs_name, last_name, address, city, state, phone " +
             "FROM Customer";
-    private static final String GET_BY_CUSTOMER_CITY = "SELECT customer_id, firs_name, last_name, " +
-            "address, city, state, phone" +
+    private static final String GET_BY_CUSTOMER_CITY = "SELECT customer_id, firs_name, last_name, address, city, state, phone " +
             "FROM Customer " +
-            "WHERE Customer.city = ?";
-    private static final String GET_BY_CUSTOMER_STATE = "SELECT customer_id, firs_name, last_name, " +
-            "address, city, state, phone" +
+            "WHERE city = ?";
+    private static final String GET_BY_CUSTOMER_STATE = "SELECT customer_id, firs_name, last_name, address, city, state, phone " +
             "FROM Customer " +
-            "WHERE Customer.state = ?";
+            "WHERE state = ?";
     private static final String GET_BY_ACCOUNT_NUMBER_ID = "SELECT Customer.customer_id, Customer.firs_name, " +
-            "Customer.last_name,  Customer.address, Customer.city, Customer.state, Customer.phone" +
+            "Customer.last_name,  Customer.address, Customer.city, Customer.state, Customer.phone " +
             "FROM Customer " +
             "INNER JOIN CustomerAccount ON Customer.customer_id = CustomerAccount.customer_id " +
             "WHERE CustomerAccount.account_id = ?";
@@ -128,6 +123,7 @@ public class CustomerDAO extends AbstractMySQL implements ICustomerDAO {
             ps.setString(4, customer.getCity());
             ps.setString(5, customer.getState());
             ps.setString(6, customer.getPhone());
+            ps.setInt(7, customer.getId());
             rs = ps.executeQuery();
             rs.next();
         } catch (SQLException e) {
@@ -273,7 +269,7 @@ public class CustomerDAO extends AbstractMySQL implements ICustomerDAO {
         Set<Customer> customerSet = new TreeSet<>();
         try{
             c = getCp().getConnection();
-            ps = c.prepareStatement(GET_BY_CUSTOMER_CITY, Statement.RETURN_GENERATED_KEYS);
+            ps = c.prepareStatement(GET_BY_CUSTOMER_STATE, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1,state);
             rs = ps.executeQuery();
 

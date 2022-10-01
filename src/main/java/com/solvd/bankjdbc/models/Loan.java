@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 public class Loan implements Comparable<Loan> {
     private int id;
+    private int accountId;
     private BigDecimal amount;
     private BigDecimal rate;
     private BigDecimal returnedAmount;
@@ -19,6 +20,14 @@ public class Loan implements Comparable<Loan> {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public BigDecimal getAmount() {

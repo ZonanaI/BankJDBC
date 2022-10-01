@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 public class FixedTermDeposit implements Comparable <FixedTermDeposit> {
     private int id;
+    private int accountId;
     private BigDecimal amount;
     private BigDecimal rate;
     private LocalDate fromDate;
@@ -18,6 +19,14 @@ public class FixedTermDeposit implements Comparable <FixedTermDeposit> {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public BigDecimal getAmount() {
