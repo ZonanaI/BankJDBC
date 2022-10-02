@@ -9,6 +9,7 @@ public class UserLogin implements Comparable<UserLogin> {
     private String username;
     private String password;
     private Set<UserSecurityQuestion> securityQuestionsSet;
+    private Set<Account> accountSet;
 
     //Getters and setters
 
@@ -50,6 +51,14 @@ public class UserLogin implements Comparable<UserLogin> {
 
     public void setSecurityQuestionsSet(Set<UserSecurityQuestion> securityQuestionsSet) {
         this.securityQuestionsSet = securityQuestionsSet;
+    }
+
+    public Set<Account> getAccountSet() {
+        return accountSet;
+    }
+
+    public void setAccountSet(Set<Account> accountSet) {
+        this.accountSet = accountSet;
     }
 
     @Override

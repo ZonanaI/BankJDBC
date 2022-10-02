@@ -18,7 +18,7 @@ public class Account implements Comparable<Account>{
     private Set<Loan> loanSet;
     private Set<FixedTermDeposit> fixedTermDepositSet;
     //Getters and setters
-
+    private Set<TransactionLog> transactionLogSet;
 
     public int getId() {
         return id;
@@ -122,6 +122,14 @@ public class Account implements Comparable<Account>{
 
     public void setFixedTermDepositSet(Set<FixedTermDeposit> fixedTermDepositSet) {
         this.fixedTermDepositSet = fixedTermDepositSet;
+    }
+
+    public Set<TransactionLog> getTransactionLogSet() {
+        return transactionLogSet;
+    }
+
+    public void setTransactionLogSet(Set<TransactionLog> transactionLogSet) {
+        this.transactionLogSet = transactionLogSet;
     }
 
     @Override

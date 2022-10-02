@@ -5,7 +5,6 @@ import java.util.Set;
 
 public class Customer implements Comparable <Customer> {
     private int id;
-    private Set<Integer> accountIds;
     private String firstName;
     private String lastName;
     private String address;
@@ -22,14 +21,6 @@ public class Customer implements Comparable <Customer> {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Set<Integer> getAccountIds() {
-        return accountIds;
-    }
-
-    public void setAccountIds(Set<Integer> accountIds) {
-        this.accountIds = accountIds;
     }
 
     public Set<Account> getAccountSet() {
@@ -86,14 +77,6 @@ public class Customer implements Comparable <Customer> {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public Set<Account> getAccountsSet() {
-        return accountSet;
-    }
-
-    public void setAccountsSet(Set<Account> accountSet) {
-        this.accountSet = accountSet;
     }
 
     @Override
