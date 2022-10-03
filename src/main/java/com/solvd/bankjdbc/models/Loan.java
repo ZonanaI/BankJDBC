@@ -65,4 +65,16 @@ public class Loan implements Comparable<Loan> {
     public int compareTo(Loan other) {
         return Integer.compare(this.id,other.id);
     }
+
+    @Override
+    public String toString() {
+        return "Loan{" +
+                "id=" + id +
+                ", accountId=" + accountId +
+                ", amount=" + amount +
+                ", rate=" + rate +
+                ", returnedAmount=" + returnedAmount +
+                ", fromDate=" + fromDate +
+                '}';
+    }
 }

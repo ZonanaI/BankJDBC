@@ -35,6 +35,16 @@ public class UserLoginService {
         userLoginDAO.remove(id);
     }
 
+    public Set<UserLogin> getAll() {
+        Set<com.solvd.bankjdbc.models.UserLogin> userLoginSet = userLoginDAO.getAll();
+        for (com.solvd.bankjdbc.models.UserLogin userLogin:
+                userLoginSet) {
+            userLogin.setSecurityQuestionsSet(userSecurityQuestionDAO.getByUserLoginId(userLogin.getId()));
+            userLogin.setAccountSet(accountDAO.getByUserLoginId(userLogin.getId()));
+        }
+        return userLoginSet;
+    }
+
     public UserLogin getByUserName(String userName) {
         UserLogin userLogin = userLoginDAO.getByUserName(userName);
         userLogin.setSecurityQuestionsSet(userSecurityQuestionDAO.getByUserLoginId(userLogin.getId()));

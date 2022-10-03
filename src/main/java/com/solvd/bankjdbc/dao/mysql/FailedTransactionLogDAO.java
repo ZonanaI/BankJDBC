@@ -9,6 +9,8 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 
 public class FailedTransactionLogDAO extends AbstractMySQL implements IFailedTransactionLogDAO {
@@ -177,12 +179,12 @@ public class FailedTransactionLogDAO extends AbstractMySQL implements IFailedTra
     }
 
     @Override
-    public List<FailedTransactionLog> getAll() {
+    public Set<FailedTransactionLog> getAll() {
 
         Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        List<FailedTransactionLog> failedTransactionLogArrayList = new ArrayList<>();
+        Set<FailedTransactionLog> failedTransactionLogTreeSet = new TreeSet<>();
         try{
             c = getCp().getConnection();
             ps = c.prepareStatement(GET_ALL, Statement.RETURN_GENERATED_KEYS);
@@ -194,7 +196,7 @@ public class FailedTransactionLogDAO extends AbstractMySQL implements IFailedTra
                 failedTransactionLog.setFailedTransactionTime(
                         (LocalDateTime) rs.getObject("failed_transaction_time"));
                 failedTransactionLog.setErrorType(rs.getString("error_description"));
-                failedTransactionLogArrayList.add(failedTransactionLog);
+                failedTransactionLogTreeSet.add(failedTransactionLog);
             }
         } catch (SQLException e) {
             logger.error(e.getMessage());
@@ -213,16 +215,16 @@ public class FailedTransactionLogDAO extends AbstractMySQL implements IFailedTra
                 logger.error(e.getMessage());
             }
         }
-        return failedTransactionLogArrayList;
+        return failedTransactionLogTreeSet;
     }
 
     @Override
-    public List<FailedTransactionLog> getByErrorType(String errorType) {
+    public Set<FailedTransactionLog> getByErrorType(String errorType) {
 
         Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        List<FailedTransactionLog> failedTransactionLogArrayList = new ArrayList<>();
+        Set<FailedTransactionLog> failedTransactionLogTreeSet = new TreeSet<>();
         try{
             c = getCp().getConnection();
             ps = c.prepareStatement(GET_BY_ERROR_TYPE, Statement.RETURN_GENERATED_KEYS);
@@ -235,7 +237,7 @@ public class FailedTransactionLogDAO extends AbstractMySQL implements IFailedTra
                 failedTransactionLog.setFailedTransactionTime(
                         (LocalDateTime) rs.getObject("failed_transaction_time"));
                 failedTransactionLog.setErrorType(rs.getString("error_description"));
-                failedTransactionLogArrayList.add(failedTransactionLog);
+                failedTransactionLogTreeSet.add(failedTransactionLog);
             }
         } catch (SQLException e) {
             logger.error(e.getMessage());
@@ -254,15 +256,15 @@ public class FailedTransactionLogDAO extends AbstractMySQL implements IFailedTra
                 logger.error(e.getMessage());
             }
         }
-        return failedTransactionLogArrayList;
+        return failedTransactionLogTreeSet;
     }
 
     @Override
-    public List<FailedTransactionLog> getByDateTimeRange(LocalDateTime firstDateTime, LocalDateTime lastDateTime) {
+    public Set<FailedTransactionLog> getByDateTimeRange(LocalDateTime firstDateTime, LocalDateTime lastDateTime) {
         Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        List<FailedTransactionLog> failedTransactionLogArrayList = new ArrayList<>();
+        Set<FailedTransactionLog> failedTransactionLogTreeSet = new TreeSet<>();
         try{
             c = getCp().getConnection();
             ps = c.prepareStatement(GET_BY_DATES, Statement.RETURN_GENERATED_KEYS);
@@ -276,7 +278,7 @@ public class FailedTransactionLogDAO extends AbstractMySQL implements IFailedTra
                 failedTransactionLog.setFailedTransactionTime(
                         (LocalDateTime) rs.getObject("failed_transaction_time"));
                 failedTransactionLog.setErrorType(rs.getString("error_description"));
-                failedTransactionLogArrayList.add(failedTransactionLog);
+                failedTransactionLogTreeSet.add(failedTransactionLog);
             }
         } catch (SQLException e) {
             logger.error(e.getMessage());
@@ -295,6 +297,6 @@ public class FailedTransactionLogDAO extends AbstractMySQL implements IFailedTra
                 logger.error(e.getMessage());
             }
         }
-        return failedTransactionLogArrayList;
+        return failedTransactionLogTreeSet;
     }
 }

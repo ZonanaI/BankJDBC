@@ -133,6 +133,40 @@ public class Account implements Comparable<Account>{
     }
 
     @Override
+    public String toString() {
+        StringBuilder customerStringBuilder = new StringBuilder();
+        getCustomerSet().forEach(t -> customerStringBuilder.append(" Full name: ").append(t.getFirstName()).append(" ")
+                .append(t.getLastName()).append(", "));
+        StringBuilder userLoginStringBuilder = new StringBuilder();
+        getUserLoginSet().forEach(t -> userLoginStringBuilder.append(" user name: ")
+                .append(t.getUsername()).append(", "));
+        StringBuilder cardStringBuilder = new StringBuilder();
+        getCardSet().forEach(t -> cardStringBuilder.append(" card number: ").append(t.getCardNumber()).append(", "));
+        StringBuilder loanStringBuilder = new StringBuilder();
+        getLoanSet().forEach(t -> loanStringBuilder.append(" amount: ").append(t.getAmount()).append(" rate: ")
+                .append(t.getRate()).append(" returned amount: ").append(t.getReturnedAmount()).append(" from: ")
+                .append(t.getFromDate()).append(", "));
+        StringBuilder fixedTermDepositStringBuilder = new StringBuilder();
+        getFixedTermDepositSet().forEach(t -> fixedTermDepositStringBuilder.append(" amount: ").append(t.getAmount())
+                .append(" rate: ").append(t.getRate()).append(" from: ").append(t.getFromDate()).append(", "));
+
+
+
+        return "Account{" +
+                "id=" + id +
+                ", balance=" + balance +
+                ", accountType='" + accountType + '\'' +
+                ", accountStatus='" + accountStatus + '\'' +
+                ", accountNumber='" + accountNumber + '\'' + "\n" +
+                ", customerSet=" + customerStringBuilder + "\n" +
+                ", userLoginSet=" + userLoginStringBuilder + "\n" +
+                ", cardSet=" + cardStringBuilder + "\n" +
+                ", loanSet=" + loanStringBuilder + "\n" +
+                ", fixedTermDepositSet=" + fixedTermDepositStringBuilder + "\n" +
+                '}';
+    }
+
+    @Override
     public int compareTo(Account other) {
         return Integer.compare(this.id,other.id);
     }

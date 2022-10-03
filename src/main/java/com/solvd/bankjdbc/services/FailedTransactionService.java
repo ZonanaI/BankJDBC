@@ -6,6 +6,7 @@ import com.solvd.bankjdbc.models.FailedTransactionLog;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 public class FailedTransactionService {
 
@@ -27,15 +28,15 @@ public class FailedTransactionService {
         failedTransactionLogDAO.remove(id);
     }
 
-    public List<FailedTransactionLog> getAll() {
+    public Set<FailedTransactionLog> getAll() {
         return failedTransactionLogDAO.getAll();
     }
 
-    public List<FailedTransactionLog> getByErrorType(String errorType) {
+    public Set<FailedTransactionLog> getByErrorType(String errorType) {
         return failedTransactionLogDAO.getByErrorType(errorType);
     }
 
-    public List<FailedTransactionLog> getByDateTimeRange(LocalDateTime firstDateTime, LocalDateTime lastDateTime) {
+    public Set<FailedTransactionLog> getByDateTimeRange(LocalDateTime firstDateTime, LocalDateTime lastDateTime) {
         return failedTransactionLogDAO.getByDateTimeRange(firstDateTime, lastDateTime);
     }
 }

@@ -34,6 +34,11 @@ public class UserLoginDAO extends AbstractMySQL implements IUserLoginDAO {
             "INNER JOIN UserName ON UserLogin.user_name_id = UserName.user_name_id " +
             "INNER JOIN AccountUserLogin ON UserLogin.user_login_id = AccountUserLogin.user_login_id " +
             "WHERE  AccountUserLogin.account_id = ?";
+    private static final String GET_ALL = "SELECT UserLogin.user_login_id, UserLogin.user_password, " +
+            "UserLogin.user_name_id, UserName.user_name " +
+            "FROM UserLogin " +
+            "INNER JOIN UserName ON UserLogin.user_name_id = UserName.user_name_id ";
+
     @Override
     public void create(UserLogin userLogin) {
         Connection c = null;
@@ -164,6 +169,44 @@ public class UserLoginDAO extends AbstractMySQL implements IUserLoginDAO {
         }
     }
 
+    @Override
+    public Set<UserLogin> getAll() {
+        Connection c = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Set<UserLogin> userLoginTreeSet = new TreeSet<>();
+        try{
+            c = getCp().getConnection();
+            ps = c.prepareStatement(GET_ALL, Statement.RETURN_GENERATED_KEYS);
+            rs = ps.executeQuery();
+
+            while (rs.next()){
+                UserLogin userLogin = new UserLogin();
+                userLogin.setId(rs.getInt("user_login_id"));
+                userLogin.setPassword(rs.getString("user_password"));
+                userLogin.setUserNameId(rs.getInt("user_name_id"));
+                userLogin.setUsername(rs.getString("user_name"));
+                userLoginTreeSet.add(userLogin);
+            }
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }finally {
+            try {
+                if (c != null) {
+                    c.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                logger.error(e.getMessage());
+            }
+        }
+        return userLoginTreeSet;
+    }
     @Override
     public UserLogin getByUserName(String userName) {
 

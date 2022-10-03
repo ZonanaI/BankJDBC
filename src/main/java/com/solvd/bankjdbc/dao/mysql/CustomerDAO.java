@@ -13,24 +13,24 @@ public class CustomerDAO extends AbstractMySQL implements ICustomerDAO {
 
     private static final Logger logger = LogManager.getLogger(CustomerDAO.class);
 
-    private static final String CREATE_CUSTOMER = "INSERT INTO Customer (firs_name, last_name, " +
+    private static final String CREATE_CUSTOMER = "INSERT INTO Customer (first_name, last_name, " +
             "address, city, state, phone) VALUES (?,?,?,?,?,?)";
-    private static final String GET_CUSTOMER_BY_ID = "SELECT customer_id, firs_name, last_name, " +
+    private static final String GET_CUSTOMER_BY_ID = "SELECT customer_id, first_name, last_name, " +
             "address, city, state, phone " +
             "FROM Customer " +
             "WHERE customer_id = ?";
-    private static final String UPDATE_CUSTOMER = "UPDATE Customer SET firs_name = ?, last_name = ?, " +
+    private static final String UPDATE_CUSTOMER = "UPDATE Customer SET first_name = ?, last_name = ?, " +
             "address = ?, city = ?, state = ?, phone = ? WHERE customer_id = ?";
     private static final String DELETE_CUSTOMER = "DELETE FROM Customer WHERE customer_id = ?";
-    private static final String GET_ALL = "SELECT customer_id, firs_name, last_name, address, city, state, phone " +
+    private static final String GET_ALL = "SELECT customer_id, first_name, last_name, address, city, state, phone " +
             "FROM Customer";
-    private static final String GET_BY_CUSTOMER_CITY = "SELECT customer_id, firs_name, last_name, address, city, state, phone " +
+    private static final String GET_BY_CUSTOMER_CITY = "SELECT customer_id, first_name, last_name, address, city, state, phone " +
             "FROM Customer " +
             "WHERE city = ?";
-    private static final String GET_BY_CUSTOMER_STATE = "SELECT customer_id, firs_name, last_name, address, city, state, phone " +
+    private static final String GET_BY_CUSTOMER_STATE = "SELECT customer_id, first_name, last_name, address, city, state, phone " +
             "FROM Customer " +
             "WHERE state = ?";
-    private static final String GET_BY_ACCOUNT_NUMBER_ID = "SELECT Customer.customer_id, Customer.firs_name, " +
+    private static final String GET_BY_ACCOUNT_NUMBER_ID = "SELECT Customer.customer_id, Customer.first_name, " +
             "Customer.last_name,  Customer.address, Customer.city, Customer.state, Customer.phone " +
             "FROM Customer " +
             "INNER JOIN CustomerAccount ON Customer.customer_id = CustomerAccount.customer_id " +
@@ -83,7 +83,7 @@ public class CustomerDAO extends AbstractMySQL implements ICustomerDAO {
             rs = ps.executeQuery();
             rs.next();
             customer.setId(rs.getInt("customer_id"));
-            customer.setFirstName(rs.getString("firs_name"));
+            customer.setFirstName(rs.getString("first_name"));
             customer.setLastName(rs.getString("last_name"));
             customer.setAddress(rs.getString("address"));
             customer.setCity(rs.getString("city"));
@@ -189,7 +189,7 @@ public class CustomerDAO extends AbstractMySQL implements ICustomerDAO {
             while (rs.next()){
                 Customer customer = new Customer();
                 customer.setId(rs.getInt("customer_id"));
-                customer.setFirstName(rs.getString("firs_name"));
+                customer.setFirstName(rs.getString("first_name"));
                 customer.setLastName(rs.getString("last_name"));
                 customer.setAddress(rs.getString("address"));
                 customer.setCity(rs.getString("city"));
@@ -232,7 +232,7 @@ public class CustomerDAO extends AbstractMySQL implements ICustomerDAO {
             while (rs.next()){
                 Customer customer = new Customer();
                 customer.setId(rs.getInt("customer_id"));
-                customer.setFirstName(rs.getString("firs_name"));
+                customer.setFirstName(rs.getString("first_name"));
                 customer.setLastName(rs.getString("last_name"));
                 customer.setAddress(rs.getString("address"));
                 customer.setCity(rs.getString("city"));
@@ -276,7 +276,7 @@ public class CustomerDAO extends AbstractMySQL implements ICustomerDAO {
             while (rs.next()){
                 Customer customer = new Customer();
                 customer.setId(rs.getInt("customer_id"));
-                customer.setFirstName(rs.getString("firs_name"));
+                customer.setFirstName(rs.getString("first_name"));
                 customer.setLastName(rs.getString("last_name"));
                 customer.setAddress(rs.getString("address"));
                 customer.setCity(rs.getString("city"));
@@ -319,7 +319,7 @@ public class CustomerDAO extends AbstractMySQL implements ICustomerDAO {
             while (rs.next()){
                 Customer customer = new Customer();
                 customer.setId(rs.getInt("customer_id"));
-                customer.setFirstName(rs.getString("firs_name"));
+                customer.setFirstName(rs.getString("first_name"));
                 customer.setLastName(rs.getString("last_name"));
                 customer.setAddress(rs.getString("address"));
                 customer.setCity(rs.getString("city"));

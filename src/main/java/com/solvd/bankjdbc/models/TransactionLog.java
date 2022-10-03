@@ -103,4 +103,30 @@ public class TransactionLog implements Comparable<TransactionLog> {
     public int compareTo(TransactionLog other) {
         return Integer.compare(this.id,other.id);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder accountStringBuilder = new StringBuilder();
+        accountStringBuilder.append(" account number: ").append(account.getAccountNumber());
+        StringBuilder employeeStringBuilder = new StringBuilder();
+        if(employee!=null){
+            employeeStringBuilder.append(" employee name: ").append(employee.getFirstName()).append(" ")
+                    .append(employee.getLastName());
+        }
+        else {
+            employeeStringBuilder.append(" ");
+        }
+        return "TransactionLog{" +
+                "id=" + id +
+                ", employeeId=" + employeeId +
+                ", accountId=" + accountId +
+                ", transactionTypeId=" + transactionTypeId +
+                ", transactionDate=" + transactionDate +
+                ", transactionAmount=" + transactionAmount +
+                ", newBalance=" + newBalance +
+                ", employee=" + employeeStringBuilder +
+                ", account=" + accountStringBuilder +
+                ", transactionType=" + transactionType +
+                '}';
+    }
 }

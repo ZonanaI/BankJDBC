@@ -65,4 +65,21 @@ public class UserLogin implements Comparable<UserLogin> {
     public int compareTo(UserLogin other) {
         return Integer.compare(this.id,other.id);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder secQuestionStringBuilder = new StringBuilder();
+        getSecurityQuestionsSet().forEach(t-> secQuestionStringBuilder.append(" security question: ")
+                .append(t.getSecurityQuestion()).append(" security answer: ").append(t.getSecurityAnswer()).append(", "));
+        StringBuilder accountStringBuilder = new StringBuilder();
+        getAccountSet().forEach(t-> accountStringBuilder.append(" account number: ").append(t.getAccountNumber()));
+        return "UserLogin{" +
+                "id=" + id +
+                ", userNameId=" + userNameId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' + "\n" +
+                ", securityQuestionsSet=" + secQuestionStringBuilder +
+                ", accountSet=" + accountStringBuilder +
+                '}';
+    }
 }

@@ -11,11 +11,11 @@ public class EmployeeDAO extends AbstractMySQL implements IEmployeeDAO {
 
     private static final Logger logger = LogManager.getLogger(EmployeeDAO.class);
 
-    private static final String CREATE_EMPLOYEE = "INSERT INTO Employee (firs_name, last_name) VALUES (?,?)";
-    private static final String GET_EMPLOYEE_BY_ID = "SELECT employee_id, firs_name, last_name, " +
+    private static final String CREATE_EMPLOYEE = "INSERT INTO Employee (first_name, last_name) VALUES (?,?)";
+    private static final String GET_EMPLOYEE_BY_ID = "SELECT employee_id, first_name, last_name " +
             "FROM Employee " +
             "WHERE employee_id = ?";
-    private static final String UPDATE_EMPLOYEE = "UPDATE Employee SET firs_name = ?, last_name = ?, " +
+    private static final String UPDATE_EMPLOYEE = "UPDATE Employee SET first_name = ?, last_name = ? " +
             "WHERE employee_id = ?";
     private static final String DELETE_EMPLOYEE = "DELETE FROM Employee WHERE employee_id = ?";
 
@@ -64,7 +64,7 @@ public class EmployeeDAO extends AbstractMySQL implements IEmployeeDAO {
             rs = ps.executeQuery();
             rs.next();
             employee.setId(rs.getInt("employee_id"));
-            employee.setFirstName(rs.getString("firs_name"));
+            employee.setFirstName(rs.getString("first_name"));
             employee.setLastName(rs.getString("last_name"));
         } catch (SQLException e) {
             logger.error(e.getMessage());

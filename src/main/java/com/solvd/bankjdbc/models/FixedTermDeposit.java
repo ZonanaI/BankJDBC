@@ -56,4 +56,15 @@ public class FixedTermDeposit implements Comparable <FixedTermDeposit> {
     public int compareTo(FixedTermDeposit other) {
         return Integer.compare(this.id,other.id);
     }
+
+    @Override
+    public String toString() {
+        return "FixedTermDeposit{" +
+                "id=" + id +
+                ", accountId=" + accountId +
+                ", amount=" + amount +
+                ", rate=" + rate +
+                ", fromDate=" + fromDate +
+                '}';
+    }
 }

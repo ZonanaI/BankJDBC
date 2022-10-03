@@ -26,7 +26,9 @@ public class TransactionLogService {
 
     public TransactionLog getById(int id) {
         TransactionLog transactionLog = transactionLogDAO.getById(id);
-        transactionLog.setEmployee(employeeDAO.getById(transactionLog.getEmployeeId()));
+        if(transactionLog.getEmployeeId()>0){
+            transactionLog.setEmployee(employeeDAO.getById(transactionLog.getEmployeeId()));
+        }
         transactionLog.setAccount(accountDAO.getById(transactionLog.getAccountId()));
         transactionLog.setTransactionType(transactionTypeDAO.getById(transactionLog.getTransactionTypeId()));
         return transactionLog;
@@ -44,7 +46,9 @@ public class TransactionLogService {
         Set<TransactionLog> transactionLogSet = transactionLogDAO.getAll();
         for (TransactionLog transactionLog:
              transactionLogSet) {
-            transactionLog.setEmployee(employeeDAO.getById(transactionLog.getEmployeeId()));
+            if(transactionLog.getEmployeeId()>0){
+                transactionLog.setEmployee(employeeDAO.getById(transactionLog.getEmployeeId()));
+            }
             transactionLog.setAccount(accountDAO.getById(transactionLog.getAccountId()));
             transactionLog.setTransactionType(transactionTypeDAO.getById(transactionLog.getTransactionTypeId()));
         }
@@ -55,7 +59,9 @@ public class TransactionLogService {
         Set<TransactionLog> transactionLogSet = transactionLogDAO.getByDateTimeRange(firstDateTime, lastDateTime);
         for (TransactionLog transactionLog:
                 transactionLogSet) {
-            transactionLog.setEmployee(employeeDAO.getById(transactionLog.getEmployeeId()));
+            if(transactionLog.getEmployeeId()>0){
+                transactionLog.setEmployee(employeeDAO.getById(transactionLog.getEmployeeId()));
+            }
             transactionLog.setAccount(accountDAO.getById(transactionLog.getAccountId()));
             transactionLog.setTransactionType(transactionTypeDAO.getById(transactionLog.getTransactionTypeId()));
         }
@@ -66,7 +72,9 @@ public class TransactionLogService {
         Set<TransactionLog> transactionLogSet = transactionLogDAO.getByTypeId(typeId);
         for (TransactionLog transactionLog:
                 transactionLogSet) {
-            transactionLog.setEmployee(employeeDAO.getById(transactionLog.getEmployeeId()));
+            if(transactionLog.getEmployeeId()>0){
+                transactionLog.setEmployee(employeeDAO.getById(transactionLog.getEmployeeId()));
+            }
             transactionLog.setAccount(accountDAO.getById(transactionLog.getAccountId()));
             transactionLog.setTransactionType(transactionTypeDAO.getById(transactionLog.getTransactionTypeId()));
         }
@@ -77,7 +85,9 @@ public class TransactionLogService {
         Set<TransactionLog> transactionLogSet = transactionLogDAO.getByAccountId(accountId);
         for (TransactionLog transactionLog:
                 transactionLogSet) {
-            transactionLog.setEmployee(employeeDAO.getById(transactionLog.getEmployeeId()));
+            if(transactionLog.getEmployeeId()>0){
+                transactionLog.setEmployee(employeeDAO.getById(transactionLog.getEmployeeId()));
+            }
             transactionLog.setAccount(accountDAO.getById(transactionLog.getAccountId()));
             transactionLog.setTransactionType(transactionTypeDAO.getById(transactionLog.getTransactionTypeId()));
         }

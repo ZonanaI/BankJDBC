@@ -67,7 +67,7 @@ public class TransactionTypeDAO extends AbstractMySQL implements ITransactionTyp
             ps.setInt(1, id);
             rs = ps.executeQuery();
             rs.next();
-            transactionType.setId(rs.getInt("fixed_term_deposit_id"));
+            transactionType.setId(rs.getInt("transaction_type_id"));
             transactionType.setName(rs.getString("transaction_name"));
             transactionType.setFeeAmount(rs.getBigDecimal("fee_amount"));
             transactionType.setDescription(rs.getString("transaction_description"));

@@ -1,6 +1,7 @@
 .idea
 build
 out
-.target
+target
 pom.xml
 resources
+all.log

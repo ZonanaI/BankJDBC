@@ -80,6 +80,23 @@ public class Customer implements Comparable <Customer> {
     }
 
     @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        getAccountSet().forEach(t -> stringBuilder.append(" account number: ").append(t.getAccountNumber())
+                .append(", "));
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", phone='" + phone + "\n" +
+                ", accountSet=" + stringBuilder +
+                '}';
+    }
+
+    @Override
     public int compareTo(Customer other) {
         return Integer.compare(this.id,other.id);
     }

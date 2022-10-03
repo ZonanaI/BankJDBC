@@ -77,6 +77,18 @@ public class Card implements Comparable <Card> {
     public void setCardType(String cardType) {
         this.cardType = cardType;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "id=" + id +
+                ", expDate=" + expDate +
+                ", securityNumber='" + securityNumber + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", cardType='" + cardType + '\'' +
+                '}';
+    }
+
     @Override
     public int compareTo(Card other) {
         return Integer.compare(this.id, other.id);
