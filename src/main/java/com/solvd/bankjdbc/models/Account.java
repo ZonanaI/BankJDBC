@@ -1,9 +1,18 @@
 package com.solvd.bankjdbc.models;
 
+import jakarta.xml.bind.annotation.*;
+
 import java.math.BigDecimal;
 import java.util.Set;
 
+
+@XmlRootElement(name = "account")
+@XmlType(propOrder = {"id","accountTypeID","accountStatusID","accountNumberID","balance","accountType","accountStatus",
+        "accountNumber","customerSet","userLoginSet","cardSet","loanSet","fixedTermDepositSet",
+        "transactionLogSet"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Account implements Comparable<Account>{
+    @XmlAttribute
     private int id;
     private int accountTypeID;
     private int accountStatusID;
@@ -12,12 +21,18 @@ public class Account implements Comparable<Account>{
     private String accountType;
     private String accountStatus;
     private String accountNumber;
+    @XmlElement (name = "customer")
     private Set<Customer> customerSet;
+    @XmlElement (name = "userLogin")
     private Set<UserLogin> userLoginSet;
+    @XmlElement (name = "card")
     private Set<Card> cardSet;
+    @XmlElement (name = "loan")
     private Set<Loan> loanSet;
+    @XmlElement (name = "fixedTermDeposit")
     private Set<FixedTermDeposit> fixedTermDepositSet;
     //Getters and setters
+    @XmlElement (name = "transactionLog")
     private Set<TransactionLog> transactionLogSet;
 
     public int getId() {
@@ -141,7 +156,8 @@ public class Account implements Comparable<Account>{
         getUserLoginSet().forEach(t -> userLoginStringBuilder.append(" user name: ")
                 .append(t.getUsername()).append(", "));
         StringBuilder cardStringBuilder = new StringBuilder();
-        getCardSet().forEach(t -> cardStringBuilder.append(" card number: ").append(t.getCardNumber()).append(", "));
+        getCardSet().forEach(t -> cardStringBuilder.append(" card number: ").append(t.getCardNumber()).append(" type: ")
+                .append(t.getCardType()).append(", "));
         StringBuilder loanStringBuilder = new StringBuilder();
         getLoanSet().forEach(t -> loanStringBuilder.append(" amount: ").append(t.getAmount()).append(" rate: ")
                 .append(t.getRate()).append(" returned amount: ").append(t.getReturnedAmount()).append(" from: ")

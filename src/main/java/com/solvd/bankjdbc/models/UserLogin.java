@@ -1,14 +1,23 @@
 package com.solvd.bankjdbc.models;
 
+import jakarta.xml.bind.annotation.*;
+
 import java.util.Set;
+
+@XmlRootElement(name = "userLogin")
+@XmlType(propOrder = {"id","userNameId","username","password","securityQuestionsSet"})
+@XmlAccessorType(XmlAccessType.FIELD)
 
 public class UserLogin implements Comparable<UserLogin> {
 
+    @XmlAttribute
     private int id;
     private int userNameId;
     private String username;
     private String password;
+    @XmlElement(name = "securityQuestions")
     private Set<UserSecurityQuestion> securityQuestionsSet;
+    @XmlTransient
     private Set<Account> accountSet;
 
     //Getters and setters

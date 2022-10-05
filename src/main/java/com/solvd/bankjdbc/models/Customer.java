@@ -1,9 +1,15 @@
 package com.solvd.bankjdbc.models;
 
 
+import jakarta.xml.bind.annotation.*;
+
 import java.util.Set;
 
+@XmlRootElement(name = "customer")
+@XmlType(propOrder = {"id","firstName","lastName","address","city","state","phone"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Customer implements Comparable <Customer> {
+    @XmlAttribute
     private int id;
     private String firstName;
     private String lastName;
@@ -11,6 +17,7 @@ public class Customer implements Comparable <Customer> {
     private String city;
     private String state;
     private String phone;
+    @XmlTransient
     private Set<Account> accountSet;
 
     //Getters and setters

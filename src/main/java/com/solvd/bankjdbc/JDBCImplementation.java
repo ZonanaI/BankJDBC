@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class Main {
-    private static final Logger logger = LogManager.getLogger(Main.class);
+public class JDBCImplementation {
+    private static final Logger logger = LogManager.getLogger(JDBCImplementation.class);
     public static void main(String[] args) {
 
         AccountService accountService = new AccountService();
@@ -17,7 +17,7 @@ public class Main {
         FailedTransactionService failedTransactionService = new FailedTransactionService();
         TransactionLogService transactionLogService = new TransactionLogService();
         UserLoginService userLoginService = new UserLoginService();
-        List<Set> setList = new ArrayList<>();
+        List<Set<?>> setList = new ArrayList<>();
         setList.add(accountService.getAll());
         setList.add(customerService.getAll());
         setList.add(failedTransactionService.getAll());

@@ -1,12 +1,22 @@
 package com.solvd.bankjdbc.models;
 
+import com.solvd.bankjdbc.dto.DateAdapter;
+import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import java.time.LocalDate;
 
+@XmlRootElement(name = "card")
+@XmlType(propOrder = {"id","cardNumberId","cardTypeId","accountId","expDate","securityNumber","cardNumber","cardType"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Card implements Comparable <Card> {
+
+    @XmlAttribute
     private int id;
     private int cardNumberId;
     private int cardTypeId;
     private int accountId;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private LocalDate expDate;
     private String securityNumber;
     private String cardNumber;

@@ -1,14 +1,29 @@
 package com.solvd.bankjdbc.models;
 
+import com.solvd.bankjdbc.dto.BigDecimalAdapter;
+import com.solvd.bankjdbc.dto.DateAdapter;
+import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Queue;
 
+@XmlRootElement(name = "loan")
+@XmlType(propOrder = {"id","accountId","amount","rate","returnedAmount","fromDate"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Loan implements Comparable<Loan> {
+
+    @XmlAttribute
     private int id;
     private int accountId;
+    @XmlJavaTypeAdapter(BigDecimalAdapter.class)
     private BigDecimal amount;
+    @XmlJavaTypeAdapter(BigDecimalAdapter.class)
     private BigDecimal rate;
+    @XmlJavaTypeAdapter(BigDecimalAdapter.class)
     private BigDecimal returnedAmount;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private LocalDate fromDate;
 
     //Getters and setters

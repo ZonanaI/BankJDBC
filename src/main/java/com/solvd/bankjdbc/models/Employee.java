@@ -1,9 +1,17 @@
 package com.solvd.bankjdbc.models;
 
+import jakarta.xml.bind.annotation.*;
+
+@XmlRootElement(name = "employee")
+@XmlType(propOrder = {"id","firstName","lastName"})
+@XmlAccessorType (XmlAccessType.FIELD)
 public class Employee {
 
+    @XmlAttribute
     private int id;
+
     private String firstName;
+
     private String lastName;
 
     //Getters and setters

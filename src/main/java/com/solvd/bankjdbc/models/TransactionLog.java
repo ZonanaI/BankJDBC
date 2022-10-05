@@ -1,19 +1,36 @@
 package com.solvd.bankjdbc.models;
 
+import com.solvd.bankjdbc.dto.BigDecimalAdapter;
+import com.solvd.bankjdbc.dto.DateAdapter;
+import com.solvd.bankjdbc.dto.DateTimeAdapter;
+import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@XmlRootElement(name = "transactionLog")
+@XmlType(propOrder = {"id","employeeId","accountId","transactionTypeId","transactionDate","transactionAmount",
+        "newBalance","employee"})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class TransactionLog implements Comparable<TransactionLog> {
 
+    @XmlAttribute
     private int id;
     private int employeeId;
     private int accountId;
     private int transactionTypeId;
+    @XmlJavaTypeAdapter(DateTimeAdapter.class)
     private LocalDateTime transactionDate;
+    @XmlJavaTypeAdapter(BigDecimalAdapter.class)
     private BigDecimal transactionAmount;
+    @XmlJavaTypeAdapter(BigDecimalAdapter.class)
     private BigDecimal newBalance;
+    @XmlElement (name = "employee")
     private Employee employee;
+    @XmlTransient
     private Account account;
+    @XmlTransient
     private TransactionType transactionType;
 
     //Getters and setters

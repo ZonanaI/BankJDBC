@@ -90,6 +90,8 @@ public class CardDAO extends AbstractMySQL implements ICardDAO {
             card.setCardNumberId(rs.getInt("card_number_id"));
             card.setCardTypeId(rs.getInt("card_type_id"));
             card.setAccountId(rs.getInt("account_id"));
+            card.setCardNumber(rs.getString("card_number"));
+            card.setCardType(rs.getString("card_type"));
         } catch (SQLException e) {
             logger.error(e.getMessage());
         }finally {
@@ -193,6 +195,8 @@ public class CardDAO extends AbstractMySQL implements ICardDAO {
             card.setCardNumberId(rs.getInt("card_number_id"));
             card.setCardTypeId(rs.getInt("card_type_id"));
             card.setAccountId(rs.getInt("account_id"));
+            card.setCardNumber(rs.getString("card_number"));
+            card.setCardType(rs.getString("card_type"));
         } catch (SQLException e) {
             logger.error(e.getMessage());
         }finally {
@@ -232,6 +236,8 @@ public class CardDAO extends AbstractMySQL implements ICardDAO {
                 card.setCardNumberId(rs.getInt("card_number_id"));
                 card.setCardTypeId(rs.getInt("card_type_id"));
                 card.setAccountId(rs.getInt("account_id"));
+                card.setCardNumber(rs.getString("card_number"));
+                card.setCardType(rs.getString("card_type"));
                 cardSet.add(card);
             }
         } catch (SQLException e) {
