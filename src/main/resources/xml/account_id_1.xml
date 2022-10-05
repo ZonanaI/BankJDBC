@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<account id="1">
+    <accountTypeID>1</accountTypeID>
+    <accountStatusID>1</accountStatusID>
+    <accountNumberID>1</accountNumberID>
+    <balance>0.00</balance>
+    <accountType>Checking</accountType>
+    <accountStatus>Pre-activated</accountStatus>
+    <accountNumber>61030693</accountNumber>
+    <customer id="1">
+        <firstName>David</firstName>
+        <lastName>Weathers</lastName>
+        <address>1452 Fairway Drive</address>
+        <city> Fairfield</city>
+        <state>California</state>
+        <phone>707-428-7549</phone>
+    </customer>
+    <userLogin id="1">
+        <userNameId>1</userNameId>
+        <username>davidW1990</username>
+        <password>123d543</password>
+    </userLogin>
+    <card id="1">
+        <cardNumberId>1</cardNumberId>
+        <cardTypeId>1</cardTypeId>
+        <accountId>1</accountId>
+        <expDate>2025-05-31</expDate>
+        <securityNumber>719</securityNumber>
+        <cardNumber>4539669246229490</cardNumber>
+        <cardType>Debit</cardType>
+    </card>
+    <card id="2">
+        <cardNumberId>2</cardNumberId>
+        <cardTypeId>2</cardTypeId>
+        <accountId>1</accountId>
+        <expDate>2025-10-31</expDate>
+        <securityNumber>434</securityNumber>
+        <cardNumber>4716779126770003</cardNumber>
+        <cardType>Credit</cardType>
+    </card>
+    <card id="3">
+        <cardNumberId>3</cardNumberId>
+        <cardTypeId>2</cardTypeId>
+        <accountId>1</accountId>
+        <expDate>2025-05-31</expDate>
+        <securityNumber>488</securityNumber>
+        <cardNumber>4929846993044318</cardNumber>
+        <cardType>Credit</cardType>
+    </card>
+    <fixedTermDeposit id="4">
+        <accountId>1</accountId>
+        <amount>500.00</amount>
+        <rate>3.50</rate>
+        <fromDate/>
+    </fixedTermDeposit>
+</account>

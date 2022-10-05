@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<accounts>
+    <account id="1">
+        <accountTypeID>1</accountTypeID>
+        <accountStatusID>1</accountStatusID>
+        <accountNumberID>1</accountNumberID>
+        <balance>0.00</balance>
+        <accountType>Checking</accountType>
+        <accountStatus>Pre-activated</accountStatus>
+        <accountNumber>61030693</accountNumber>
+        <customer id="1">
+            <firstName>David</firstName>
+            <lastName>Weathers</lastName>
+            <address>1452 Fairway Drive</address>
+            <city> Fairfield</city>
+            <state>California</state>
+            <phone>707-428-7549</phone>
+        </customer>
+        <userLogin id="1">
+            <userNameId>1</userNameId>
+            <username>davidW1990</username>
+            <password>123d543</password>
+        </userLogin>
+        <card id="1">
+            <cardNumberId>1</cardNumberId>
+            <cardTypeId>1</cardTypeId>
+            <accountId>1</accountId>
+            <expDate>2025-05-31</expDate>
+            <securityNumber>719</securityNumber>
+            <cardNumber>4539669246229490</cardNumber>
+            <cardType>Debit</cardType>
+        </card>
+        <card id="2">
+            <cardNumberId>2</cardNumberId>
+            <cardTypeId>2</cardTypeId>
+            <accountId>1</accountId>
+            <expDate>2025-10-31</expDate>
+            <securityNumber>434</securityNumber>
+            <cardNumber>4716779126770003</cardNumber>
+            <cardType>Credit</cardType>
+        </card>
+        <card id="3">
+            <cardNumberId>3</cardNumberId>
+            <cardTypeId>2</cardTypeId>
+            <accountId>1</accountId>
+            <expDate>2025-05-31</expDate>
+            <securityNumber>488</securityNumber>
+            <cardNumber>4929846993044318</cardNumber>
+            <cardType>Credit</cardType>
+        </card>
+        <fixedTermDeposit id="4">
+            <accountId>1</accountId>
+            <amount>500.00</amount>
+            <rate>3.50</rate>
+            <fromDate/>
+        </fixedTermDeposit>
+    </account>
+    <account id="2">
+        <accountTypeID>2</accountTypeID>
+        <accountStatusID>2</accountStatusID>
+        <accountNumberID>2</accountNumberID>
+        <balance>50000.00</balance>
+        <accountType>Savings</accountType>
+        <accountStatus>Activated</accountStatus>
+        <accountNumber>93812998</accountNumber>
+        <customer id="1">
+            <firstName>David</firstName>
+            <lastName>Weathers</lastName>
+            <address>1452 Fairway Drive</address>
+            <city> Fairfield</city>
+            <state>California</state>
+            <phone>707-428-7549</phone>
+        </customer>
+        <customer id="2">
+            <firstName>Lynn</firstName>
+            <lastName>Murphy</lastName>
+            <address>633 Mayo Street</address>
+            <city>Cincinnati</city>
+            <state>Kentucky</state>
+            <phone>859-802-2180</phone>
+        </customer>
+        <userLogin id="1">
+            <userNameId>1</userNameId>
+            <username>davidW1990</username>
+            <password>123d543</password>
+        </userLogin>
+        <userLogin id="2">
+            <userNameId>2</userNameId>
+            <username>lynnM1980</username>
+            <password>345L786</password>
+        </userLogin>
+        <card id="4">
+            <cardNumberId>4</cardNumberId>
+            <cardTypeId>2</cardTypeId>
+            <accountId>2</accountId>
+            <expDate>2025-05-31</expDate>
+            <securityNumber>785</securityNumber>
+            <cardNumber>4393852493390174</cardNumber>
+            <cardType>Credit</cardType>
+        </card>
+        <card id="5">
+            <cardNumberId>5</cardNumberId>
+            <cardTypeId>1</cardTypeId>
+            <accountId>2</accountId>
+            <expDate>2025-05-31</expDate>
+            <securityNumber>478</securityNumber>
+            <cardNumber>5438153166765030</cardNumber>
+            <cardType>Debit</cardType>
+        </card>
+        <fixedTermDeposit id="1">
+            <accountId>2</accountId>
+            <amount>5000.00</amount>
+            <rate>3.50</rate>
+            <fromDate/>
+        </fixedTermDeposit>
+        <transactionLog id="1">
+            <employeeId>0</employeeId>
+            <accountId>2</accountId>
+            <transactionTypeId>2</transactionTypeId>
+            <transactionDate>2022-07-18T00:00</transactionDate>
+            <transactionAmount>5000.00</transactionAmount>
+        </transactionLog>
+    </account>
+    <account id="3">
+        <accountTypeID>2</accountTypeID>
+        <accountStatusID>2</accountStatusID>
+        <accountNumberID>3</accountNumberID>
+        <balance>20000.00</balance>
+        <accountType>Savings</accountType>
+        <accountStatus>Activated</accountStatus>
+        <accountNumber>29299003</accountNumber>
+        <customer id="2">
+            <firstName>Lynn</firstName>
+            <lastName>Murphy</lastName>
+            <address>633 Mayo Street</address>
+            <city>Cincinnati</city>
+            <state>Kentucky</state>
+            <phone>859-802-2180</phone>
+        </customer>
+        <userLogin id="2">
+            <userNameId>2</userNameId>
+            <username>lynnM1980</username>
+            <password>345L786</password>
+        </userLogin>
+        <card id="6">
+            <cardNumberId>6</cardNumberId>
+            <cardTypeId>1</cardTypeId>
+            <accountId>3</accountId>
+            <expDate>2025-05-31</expDate>
+            <securityNumber>652</securityNumber>
+            <cardNumber>5372466000380990</cardNumber>
+            <cardType>Debit</cardType>
+        </card>
+        <fixedTermDeposit id="2">
+            <accountId>3</accountId>
+            <amount>15000.00</amount>
+            <rate>2.50</rate>
+            <fromDate/>
+        </fixedTermDeposit>
+        <fixedTermDeposit id="3">
+            <accountId>3</accountId>
+            <amount>20000.00</amount>
+            <rate>4.50</rate>
+            <fromDate/>
+        </fixedTermDeposit>
+        <transactionLog id="2">
+            <employeeId>0</employeeId>
+            <accountId>3</accountId>
+            <transactionTypeId>3</transactionTypeId>
+            <transactionDate>2022-07-18T00:00</transactionDate>
+            <transactionAmount>7000.00</transactionAmount>
+        </transactionLog>
+        <transactionLog id="3">
+            <employeeId>0</employeeId>
+            <accountId>3</accountId>
+            <transactionTypeId>2</transactionTypeId>
+            <transactionDate>2022-07-18T00:00</transactionDate>
+            <transactionAmount>5000.00</transactionAmount>
+        </transactionLog>
+    </account>
+    <account id="4">
+        <accountTypeID>3</accountTypeID>
+        <accountStatusID>2</accountStatusID>
+        <accountNumberID>4</accountNumberID>
+        <balance>150000.00</balance>
+        <accountType>Money market</accountType>
+        <accountStatus>Activated</accountStatus>
+        <accountNumber>03422745</accountNumber>
+        <customer id="4">
+            <firstName>Dale</firstName>
+            <lastName>Range</lastName>
+            <address>1801 Leverton Cove Road</address>
+            <city>Springfield</city>
+            <state>Massachusetts</state>
+            <phone>413-431-3971</phone>
+        </customer>
+        <userLogin id="4">
+            <userNameId>4</userNameId>
+            <username>daleR1978</username>
+            <password>364D858</password>
+        </userLogin>
+        <card id="7">
+            <cardNumberId>7</cardNumberId>
+            <cardTypeId>1</cardTypeId>
+            <accountId>4</accountId>
+            <expDate>2025-05-31</expDate>
+            <securityNumber>725</securityNumber>
+            <cardNumber>5466966799410079</cardNumber>
+            <cardType>Debit</cardType>
+        </card>
+        <loan id="1">
+            <accountId>4</accountId>
+            <amount>5000.00</amount>
+            <rate>3.50</rate>
+            <returnedAmount>4000.00</returnedAmount>
+            <fromDate>2022-02-15</fromDate>
+        </loan>
+        <loan id="3">
+            <accountId>4</accountId>
+            <amount>20000.00</amount>
+            <rate>4.50</rate>
+            <returnedAmount>18000.00</returnedAmount>
+            <fromDate>2022-04-26</fromDate>
+        </loan>
+        <loan id="4">
+            <accountId>4</accountId>
+            <amount>5000.00</amount>
+            <rate>3.50</rate>
+            <returnedAmount>6050.00</returnedAmount>
+            <fromDate>2022-02-13</fromDate>
+        </loan>
+        <transactionLog id="4">
+            <employeeId>0</employeeId>
+            <accountId>4</accountId>
+            <transactionTypeId>3</transactionTypeId>
+            <transactionDate>2022-07-18T00:00</transactionDate>
+            <transactionAmount>50000.00</transactionAmount>
+        </transactionLog>
+        <transactionLog id="5">
+            <employeeId>3</employeeId>
+            <accountId>4</accountId>
+            <transactionTypeId>4</transactionTypeId>
+            <transactionDate>2022-07-18T00:00</transactionDate>
+            <transactionAmount>10000.00</transactionAmount>
+        </transactionLog>
+    </account>
+    <account id="5">
+        <accountTypeID>3</accountTypeID>
+        <accountStatusID>3</accountStatusID>
+        <accountNumberID>5</accountNumberID>
+        <balance>-25000.00</balance>
+        <accountType>Money market</accountType>
+        <accountStatus>Suspended</accountStatus>
+        <accountNumber>03411593</accountNumber>
+        <customer id="3">
+            <firstName>Pearl</firstName>
+            <lastName>Sailer</lastName>
+            <address>4676 Court Street</address>
+            <city>Saint Louis</city>
+            <state>Missouri</state>
+            <phone>636-689-0491</phone>
+        </customer>
+        <userLogin id="3">
+            <userNameId>3</userNameId>
+            <username>pearlS1985</username>
+            <password>346P143</password>
+        </userLogin>
+        <card id="8">
+            <cardNumberId>8</cardNumberId>
+            <cardTypeId>2</cardTypeId>
+            <accountId>5</accountId>
+            <expDate>2025-05-31</expDate>
+            <securityNumber>336</securityNumber>
+            <cardNumber>5360484956883507</cardNumber>
+            <cardType>Credit</cardType>
+        </card>
+        <card id="9">
+            <cardNumberId>9</cardNumberId>
+            <cardTypeId>1</cardTypeId>
+            <accountId>5</accountId>
+            <expDate>2025-05-31</expDate>
+            <securityNumber>571</securityNumber>
+            <cardNumber>341429823553796</cardNumber>
+            <cardType>Debit</cardType>
+        </card>
+        <loan id="2">
+            <accountId>5</accountId>
+            <amount>50000.00</amount>
+            <rate>2.50</rate>
+            <returnedAmount>25000.00</returnedAmount>
+            <fromDate>2022-05-09</fromDate>
+        </loan>
+    </account>
+    <account id="6">
+        <accountTypeID>3</accountTypeID>
+        <accountStatusID>2</accountStatusID>
+        <accountNumberID>6</accountNumberID>
+        <balance>250000.00</balance>
+        <accountType>Money market</accountType>
+        <accountStatus>Activated</accountStatus>
+        <accountNumber>41798048</accountNumber>
+        <customer id="4">
+            <firstName>Dale</firstName>
+            <lastName>Range</lastName>
+            <address>1801 Leverton Cove Road</address>
+            <city>Springfield</city>
+            <state>Massachusetts</state>
+            <phone>413-431-3971</phone>
+        </customer>
+        <userLogin id="4">
+            <userNameId>4</userNameId>
+            <username>daleR1978</username>
+            <password>364D858</password>
+        </userLogin>
+        <card id="10">
+            <cardNumberId>10</cardNumberId>
+            <cardTypeId>2</cardTypeId>
+            <accountId>6</accountId>
+            <expDate>2025-05-31</expDate>
+            <securityNumber>318</securityNumber>
+            <cardNumber>345707257018246</cardNumber>
+            <cardType>Credit</cardType>
+        </card>
+        <card id="11">
+            <cardNumberId>11</cardNumberId>
+            <cardTypeId>1</cardTypeId>
+            <accountId>6</accountId>
+            <expDate>2025-05-31</expDate>
+            <securityNumber>182</securityNumber>
+            <cardNumber>372867566112712</cardNumber>
+            <cardType>Debit</cardType>
+        </card>
+        <card id="12">
+            <cardNumberId>12</cardNumberId>
+            <cardTypeId>2</cardTypeId>
+            <accountId>6</accountId>
+            <expDate>2025-05-31</expDate>
+            <securityNumber>176</securityNumber>
+            <cardNumber>377238644392707</cardNumber>
+            <cardType>Credit</cardType>
+        </card>
+        <transactionLog id="6">
+            <employeeId>0</employeeId>
+            <accountId>6</accountId>
+            <transactionTypeId>2</transactionTypeId>
+            <transactionDate>2022-07-18T00:00</transactionDate>
+            <transactionAmount>10000.00</transactionAmount>
+        </transactionLog>
+    </account>
+</accounts>

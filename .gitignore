@@ -3,5 +3,6 @@ build
 out
 target
 pom.xml
-resources
+src/main/resources/configuration.properties
+src/main/resources/log4j2.xml
 all.log

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<card id="1">
+    <cardNumberId>1</cardNumberId>
+    <cardTypeId>1</cardTypeId>
+    <accountId>1</accountId>
+    <expDate>2025-05-31</expDate>
+    <securityNumber>719</securityNumber>
+    <cardNumber>4539669246229490</cardNumber>
+    <cardType>Debit</cardType>
+</card>
