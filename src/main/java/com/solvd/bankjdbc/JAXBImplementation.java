@@ -70,11 +70,20 @@ public class JAXBImplementation {
 
         //Account marshalling example
         Account account1 = accountService.getById(1);
+        Set<Account> accountSet = new TreeSet<>();
+        accountSet = accountService.getAll();
+
         try {
             accountDTO.marshal(account1);
         } catch (JAXBException e){
             logger.error(e);
         }
+        try {
+            accountDTO.marshalCollection(accountSet);
+        } catch (JAXBException e){
+            logger.error(e);
+        }
+
     }
 
 }
