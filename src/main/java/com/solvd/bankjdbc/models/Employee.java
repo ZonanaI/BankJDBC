@@ -1,5 +1,6 @@
 package com.solvd.bankjdbc.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.xml.bind.annotation.*;
 
 @XmlRootElement(name = "employee")
@@ -8,10 +9,11 @@ import jakarta.xml.bind.annotation.*;
 public class Employee {
 
     @XmlAttribute
+    @JsonProperty
     private int id;
-
+    @JsonProperty
     private String firstName;
-
+    @JsonProperty
     private String lastName;
 
     //Getters and setters

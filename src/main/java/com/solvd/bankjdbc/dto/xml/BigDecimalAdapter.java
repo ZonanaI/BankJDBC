@@ -1,4 +1,4 @@
-package com.solvd.bankjdbc.dto;
+package com.solvd.bankjdbc.dto.xml;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 

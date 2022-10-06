@@ -1,35 +1,29 @@
 package com.solvd.bankjdbc;
 
-import com.solvd.bankjdbc.dto.xml.AccountDTO;
-import com.solvd.bankjdbc.dto.xml.CardDTO;
-import com.solvd.bankjdbc.dto.xml.EmployeeDTO;
-import com.solvd.bankjdbc.models.Account;
+import com.solvd.bankjdbc.dto.json.EmployeeDTO;
+import com.solvd.bankjdbc.dto.json.CardDTO;
 import com.solvd.bankjdbc.models.Card;
 import com.solvd.bankjdbc.models.Employee;
 import com.solvd.bankjdbc.models.Employees;
-import com.solvd.bankjdbc.services.AccountService;
 import com.solvd.bankjdbc.services.CardService;
 import com.solvd.bankjdbc.services.EmployeeService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import jakarta.xml.bind.JAXBException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class JAXBImplementation {
+public class JacksonImplementation {
+    private static final Logger logger = LogManager.getLogger(JacksonImplementation.class);
 
-    private static final Logger logger = LogManager.getLogger(JAXBImplementation.class);
     public static void main(String[] args) {
         EmployeeService employeeService = new EmployeeService();
         EmployeeDTO employeeDTO = new EmployeeDTO();
         CardService cardService = new CardService();
         CardDTO cardDTO = new CardDTO();
-        AccountService accountService = new AccountService();
-        AccountDTO accountDTO = new AccountDTO();
-
 
         //Employee marshalling example
         Employee employee1 = employeeService.getById(1);
@@ -41,21 +35,21 @@ public class JAXBImplementation {
         employees.setEmployees(employeeList);
         try {
             employeeDTO.marshal(employee1);
-        } catch (JAXBException e) {
+        } catch (IOException e) {
             logger.error(e);
         }
         try {
             employeeDTO.marshalCollection(employees.getEmployees());
-        } catch (JAXBException e) {
+        } catch (IOException e) {
             logger.error(e);
         }
 
-
+        
         //Card marshalling example
         Card card1 = cardService.getById(1);
         try {
             cardDTO.marshal(card1);
-        } catch (JAXBException e){
+        } catch (IOException e){
             logger.error(e);
         }
         Set<Card> cardSet = new TreeSet<>();
@@ -64,26 +58,8 @@ public class JAXBImplementation {
         }
         try{
             cardDTO.marshalCollection(cardSet);
-        }catch (JAXBException e){
+        }catch (IOException e){
             logger.error(e);
         }
-
-        //Account marshalling example
-        Account account1 = accountService.getById(1);
-        Set<Account> accountSet;
-        accountSet = accountService.getAll();
-
-        try {
-            accountDTO.marshal(account1);
-        } catch (JAXBException e){
-            logger.error(e);
-        }
-        try {
-            accountDTO.marshalCollection(accountSet);
-        } catch (JAXBException e){
-            logger.error(e);
-        }
-
     }
-
 }

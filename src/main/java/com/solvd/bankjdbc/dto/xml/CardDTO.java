@@ -1,4 +1,4 @@
-package com.solvd.bankjdbc.dto;
+package com.solvd.bankjdbc.dto.xml;
 import com.solvd.bankjdbc.models.Card;
 import com.solvd.bankjdbc.models.Cards;
 import org.apache.logging.log4j.LogManager;

@@ -1,29 +1,29 @@
-package com.solvd.bankjdbc.dto;
+package com.solvd.bankjdbc.dto.xml;
 
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 
-public class DateTimeAdapter extends XmlAdapter<String, LocalDateTime> {
+public class DateAdapter extends XmlAdapter<String, LocalDate> {
 
     public DateTimeFormatter dateFormat() {
 
-        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return new DateTimeFormatterBuilder()
                 .appendOptional(pattern)
                 .toFormatter();
     }
 
     @Override
-    public LocalDateTime unmarshal(String s) {
+    public LocalDate unmarshal(String s) {
         DateTimeFormatter formatter = dateFormat();
-        return LocalDateTime.parse(s,formatter);
+        return LocalDate.parse(s,formatter);
     }
 
     @Override
-    public String marshal(LocalDateTime localDate) {
+    public String marshal(LocalDate localDate) {
         return localDate.toString();
     }
 }

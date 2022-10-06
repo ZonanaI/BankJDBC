@@ -1,4 +1,4 @@
-package com.solvd.bankjdbc.dto;
+package com.solvd.bankjdbc.dto.xml;
 
 import com.solvd.bankjdbc.models.Account;
 import com.solvd.bankjdbc.models.Accounts;

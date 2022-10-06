@@ -1,8 +1,7 @@
 package com.solvd.bankjdbc.models;
 
-import com.solvd.bankjdbc.dto.BigDecimalAdapter;
-import com.solvd.bankjdbc.dto.DateAdapter;
-import com.solvd.bankjdbc.dto.DateTimeAdapter;
+import com.solvd.bankjdbc.dto.xml.BigDecimalAdapter;
+import com.solvd.bankjdbc.dto.xml.DateTimeAdapter;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 

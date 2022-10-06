@@ -1,6 +1,11 @@
 package com.solvd.bankjdbc.models;
 
-import com.solvd.bankjdbc.dto.DateAdapter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.solvd.bankjdbc.dto.json.LocalDateDeserializer;
+import com.solvd.bankjdbc.dto.json.LocalDateSerializer;
+import com.solvd.bankjdbc.dto.xml.DateAdapter;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -12,14 +17,24 @@ import java.time.LocalDate;
 public class Card implements Comparable <Card> {
 
     @XmlAttribute
+    @JsonProperty
     private int id;
+    @JsonProperty
     private int cardNumberId;
+    @JsonProperty
     private int cardTypeId;
+    @JsonProperty
     private int accountId;
     @XmlJavaTypeAdapter(DateAdapter.class)
+    @JsonProperty
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate expDate;
+    @JsonProperty
     private String securityNumber;
+    @JsonProperty
     private String cardNumber;
+    @JsonProperty
     private String cardType;
 
     //Getters and setters

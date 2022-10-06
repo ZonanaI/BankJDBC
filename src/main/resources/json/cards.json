@@ -1,0 +1,37 @@
+[ {
+  "id" : 1,
+  "cardNumberId" : 1,
+  "cardTypeId" : 1,
+  "accountId" : 1,
+  "expDate" : "2025-05-31",
+  "securityNumber" : "719",
+  "cardNumber" : "4539669246229490",
+  "cardType" : "Debit"
+}, {
+  "id" : 2,
+  "cardNumberId" : 2,
+  "cardTypeId" : 2,
+  "accountId" : 1,
+  "expDate" : "2025-10-31",
+  "securityNumber" : "434",
+  "cardNumber" : "4716779126770003",
+  "cardType" : "Credit"
+}, {
+  "id" : 3,
+  "cardNumberId" : 3,
+  "cardTypeId" : 2,
+  "accountId" : 1,
+  "expDate" : "2025-05-31",
+  "securityNumber" : "488",
+  "cardNumber" : "4929846993044318",
+  "cardType" : "Credit"
+}, {
+  "id" : 4,
+  "cardNumberId" : 4,
+  "cardTypeId" : 2,
+  "accountId" : 2,
+  "expDate" : "2025-05-31",
+  "securityNumber" : "785",
+  "cardNumber" : "4393852493390174",
+  "cardType" : "Credit"
+} ]

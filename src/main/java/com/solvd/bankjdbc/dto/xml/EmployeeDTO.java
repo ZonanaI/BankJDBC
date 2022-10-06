@@ -1,4 +1,4 @@
-package com.solvd.bankjdbc.dto;
+package com.solvd.bankjdbc.dto.xml;
 
 import com.solvd.bankjdbc.models.Employee;
 import com.solvd.bankjdbc.models.Employees;
@@ -60,6 +60,6 @@ public class EmployeeDTO implements IBaseJAXB<Employee> {
         marshaller.marshal(employees,stringWriter);
         logger.info(stringWriter);
         String filePath = "src/main/resources/xml/employees.xml";
-        marshaller.marshal(employees,new File("src/main/resources/xml/employees.xml"));
+        marshaller.marshal(employees,new File(filePath));
     }
 }

@@ -1,13 +1,12 @@
 package com.solvd.bankjdbc.models;
 
-import com.solvd.bankjdbc.dto.BigDecimalAdapter;
-import com.solvd.bankjdbc.dto.DateAdapter;
+import com.solvd.bankjdbc.dto.xml.BigDecimalAdapter;
+import com.solvd.bankjdbc.dto.xml.DateAdapter;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Queue;
 
 @XmlRootElement(name = "loan")
 @XmlType(propOrder = {"id","accountId","amount","rate","returnedAmount","fromDate"})
