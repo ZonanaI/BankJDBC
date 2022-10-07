@@ -1,6 +1,7 @@
 package com.solvd.bankjdbc.models;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.xml.bind.annotation.*;
 
 import java.util.Set;
@@ -10,13 +11,21 @@ import java.util.Set;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Customer implements Comparable <Customer> {
     @XmlAttribute
+    @JsonProperty
     private int id;
+    @JsonProperty
     private String firstName;
+    @JsonProperty
     private String lastName;
+    @JsonProperty
     private String address;
+    @JsonProperty
     private String city;
+    @JsonProperty
     private String state;
+    @JsonProperty
     private String phone;
+
     @XmlTransient
     private Set<Account> accountSet;
 

@@ -1,10 +1,17 @@
 package com.solvd.bankjdbc.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class UserSecurityQuestion  implements Comparable<UserSecurityQuestion> {
+    @JsonProperty
     private int id;
+    @JsonProperty
     private int userLoginId;
+    @JsonProperty
     private int securityAnswerId;
+    @JsonProperty
     private String securityQuestion;
+    @JsonProperty
     private String securityAnswer;
 
     //Getters and setters

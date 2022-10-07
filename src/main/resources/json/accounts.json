@@ -1,0 +1,471 @@
+[ {
+  "id" : 1,
+  "accountTypeID" : 1,
+  "accountStatusID" : 1,
+  "accountNumberID" : 1,
+  "balance" : 0.00,
+  "accountType" : "Checking",
+  "accountStatus" : "Pre-activated",
+  "accountNumber" : "61030693",
+  "customerSet" : [ {
+    "id" : 1,
+    "firstName" : "David",
+    "lastName" : "Weathers",
+    "address" : "1452 Fairway Drive",
+    "city" : " Fairfield",
+    "state" : "California",
+    "phone" : "707-428-7549",
+    "accountSet" : null
+  } ],
+  "userLoginSet" : [ {
+    "id" : 1,
+    "userNameId" : 1,
+    "username" : "davidW1990",
+    "password" : "123d543",
+    "securityQuestionsSet" : [ {
+      "id" : 1,
+      "userLoginId" : 1,
+      "securityAnswerId" : 0,
+      "securityQuestion" : "First pet name?",
+      "securityAnswer" : "Lulu"
+    } ],
+    "accountSet" : null
+  } ],
+  "cardSet" : [ {
+    "id" : 1,
+    "cardNumberId" : 1,
+    "cardTypeId" : 1,
+    "accountId" : 1,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "719",
+    "cardNumber" : "4539669246229490",
+    "cardType" : "Debit"
+  }, {
+    "id" : 2,
+    "cardNumberId" : 2,
+    "cardTypeId" : 2,
+    "accountId" : 1,
+    "expDate" : "2025-10-31",
+    "securityNumber" : "434",
+    "cardNumber" : "4716779126770003",
+    "cardType" : "Credit"
+  }, {
+    "id" : 3,
+    "cardNumberId" : 3,
+    "cardTypeId" : 2,
+    "accountId" : 1,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "488",
+    "cardNumber" : "4929846993044318",
+    "cardType" : "Credit"
+  } ],
+  "loanSet" : [ ],
+  "fixedTermDepositSet" : [ {
+    "id" : 4,
+    "accountId" : 1,
+    "amount" : "500.00",
+    "rate" : "3.50",
+    "fromDate" : "2022-08-13"
+  } ],
+  "transactionLogSet" : [ ]
+}, {
+  "id" : 2,
+  "accountTypeID" : 2,
+  "accountStatusID" : 2,
+  "accountNumberID" : 2,
+  "balance" : 50000.00,
+  "accountType" : "Savings",
+  "accountStatus" : "Activated",
+  "accountNumber" : "93812998",
+  "customerSet" : [ {
+    "id" : 1,
+    "firstName" : "David",
+    "lastName" : "Weathers",
+    "address" : "1452 Fairway Drive",
+    "city" : " Fairfield",
+    "state" : "California",
+    "phone" : "707-428-7549",
+    "accountSet" : null
+  }, {
+    "id" : 2,
+    "firstName" : "Lynn",
+    "lastName" : "Murphy",
+    "address" : "633 Mayo Street",
+    "city" : "Cincinnati",
+    "state" : "Kentucky",
+    "phone" : "859-802-2180",
+    "accountSet" : null
+  } ],
+  "userLoginSet" : [ {
+    "id" : 1,
+    "userNameId" : 1,
+    "username" : "davidW1990",
+    "password" : "123d543",
+    "securityQuestionsSet" : [ {
+      "id" : 1,
+      "userLoginId" : 1,
+      "securityAnswerId" : 0,
+      "securityQuestion" : "First pet name?",
+      "securityAnswer" : "Lulu"
+    } ],
+    "accountSet" : null
+  }, {
+    "id" : 2,
+    "userNameId" : 2,
+    "username" : "lynnM1980",
+    "password" : "345L786",
+    "securityQuestionsSet" : [ {
+      "id" : 2,
+      "userLoginId" : 2,
+      "securityAnswerId" : 0,
+      "securityQuestion" : "Mothers last name?",
+      "securityAnswer" : "Luiz"
+    } ],
+    "accountSet" : null
+  } ],
+  "cardSet" : [ {
+    "id" : 4,
+    "cardNumberId" : 4,
+    "cardTypeId" : 2,
+    "accountId" : 2,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "785",
+    "cardNumber" : "4393852493390174",
+    "cardType" : "Credit"
+  }, {
+    "id" : 5,
+    "cardNumberId" : 5,
+    "cardTypeId" : 1,
+    "accountId" : 2,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "478",
+    "cardNumber" : "5438153166765030",
+    "cardType" : "Debit"
+  } ],
+  "loanSet" : [ ],
+  "fixedTermDepositSet" : [ {
+    "id" : 1,
+    "accountId" : 2,
+    "amount" : "5000.00",
+    "rate" : "3.50",
+    "fromDate" : "2022-02-15"
+  } ],
+  "transactionLogSet" : [ {
+    "id" : 1,
+    "employeeId" : 0,
+    "accountId" : 2,
+    "transactionTypeId" : 2,
+    "transactionDate" : "2022-07-18",
+    "transactionAmount" : "5000.00",
+    "newBalance" : null,
+    "employee" : null,
+    "account" : null,
+    "transactionType" : null
+  } ]
+}, {
+  "id" : 3,
+  "accountTypeID" : 2,
+  "accountStatusID" : 2,
+  "accountNumberID" : 3,
+  "balance" : 20000.00,
+  "accountType" : "Savings",
+  "accountStatus" : "Activated",
+  "accountNumber" : "29299003",
+  "customerSet" : [ {
+    "id" : 2,
+    "firstName" : "Lynn",
+    "lastName" : "Murphy",
+    "address" : "633 Mayo Street",
+    "city" : "Cincinnati",
+    "state" : "Kentucky",
+    "phone" : "859-802-2180",
+    "accountSet" : null
+  } ],
+  "userLoginSet" : [ {
+    "id" : 2,
+    "userNameId" : 2,
+    "username" : "lynnM1980",
+    "password" : "345L786",
+    "securityQuestionsSet" : [ {
+      "id" : 2,
+      "userLoginId" : 2,
+      "securityAnswerId" : 0,
+      "securityQuestion" : "Mothers last name?",
+      "securityAnswer" : "Luiz"
+    } ],
+    "accountSet" : null
+  } ],
+  "cardSet" : [ {
+    "id" : 6,
+    "cardNumberId" : 6,
+    "cardTypeId" : 1,
+    "accountId" : 3,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "652",
+    "cardNumber" : "5372466000380990",
+    "cardType" : "Debit"
+  } ],
+  "loanSet" : [ ],
+  "fixedTermDepositSet" : [ {
+    "id" : 2,
+    "accountId" : 3,
+    "amount" : "15000.00",
+    "rate" : "2.50",
+    "fromDate" : "2022-05-09"
+  }, {
+    "id" : 3,
+    "accountId" : 3,
+    "amount" : "20000.00",
+    "rate" : "4.50",
+    "fromDate" : "2022-04-26"
+  } ],
+  "transactionLogSet" : [ {
+    "id" : 2,
+    "employeeId" : 0,
+    "accountId" : 3,
+    "transactionTypeId" : 3,
+    "transactionDate" : "2022-07-18",
+    "transactionAmount" : "7000.00",
+    "newBalance" : null,
+    "employee" : null,
+    "account" : null,
+    "transactionType" : null
+  }, {
+    "id" : 3,
+    "employeeId" : 0,
+    "accountId" : 3,
+    "transactionTypeId" : 2,
+    "transactionDate" : "2022-07-18",
+    "transactionAmount" : "5000.00",
+    "newBalance" : null,
+    "employee" : null,
+    "account" : null,
+    "transactionType" : null
+  } ]
+}, {
+  "id" : 4,
+  "accountTypeID" : 3,
+  "accountStatusID" : 2,
+  "accountNumberID" : 4,
+  "balance" : 150000.00,
+  "accountType" : "Money market",
+  "accountStatus" : "Activated",
+  "accountNumber" : "03422745",
+  "customerSet" : [ {
+    "id" : 4,
+    "firstName" : "Dale",
+    "lastName" : "Range",
+    "address" : "1801 Leverton Cove Road",
+    "city" : "Springfield",
+    "state" : "Massachusetts",
+    "phone" : "413-431-3971",
+    "accountSet" : null
+  } ],
+  "userLoginSet" : [ {
+    "id" : 4,
+    "userNameId" : 4,
+    "username" : "daleR1978",
+    "password" : "364D858",
+    "securityQuestionsSet" : [ {
+      "id" : 4,
+      "userLoginId" : 4,
+      "securityAnswerId" : 0,
+      "securityQuestion" : "Favourite ice cream flavour?",
+      "securityAnswer" : "Chocolate"
+    } ],
+    "accountSet" : null
+  } ],
+  "cardSet" : [ {
+    "id" : 7,
+    "cardNumberId" : 7,
+    "cardTypeId" : 1,
+    "accountId" : 4,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "725",
+    "cardNumber" : "5466966799410079",
+    "cardType" : "Debit"
+  } ],
+  "loanSet" : [ {
+    "id" : 1,
+    "accountId" : 4,
+    "amount" : "5000.00",
+    "rate" : "3.50",
+    "returnedAmount" : "4000.00",
+    "fromDate" : "2022-02-15"
+  }, {
+    "id" : 3,
+    "accountId" : 4,
+    "amount" : "20000.00",
+    "rate" : "4.50",
+    "returnedAmount" : "18000.00",
+    "fromDate" : "2022-04-26"
+  }, {
+    "id" : 4,
+    "accountId" : 4,
+    "amount" : "5000.00",
+    "rate" : "3.50",
+    "returnedAmount" : "6050.00",
+    "fromDate" : "2022-02-13"
+  } ],
+  "fixedTermDepositSet" : [ ],
+  "transactionLogSet" : [ {
+    "id" : 4,
+    "employeeId" : 0,
+    "accountId" : 4,
+    "transactionTypeId" : 3,
+    "transactionDate" : "2022-07-18",
+    "transactionAmount" : "50000.00",
+    "newBalance" : null,
+    "employee" : null,
+    "account" : null,
+    "transactionType" : null
+  }, {
+    "id" : 5,
+    "employeeId" : 3,
+    "accountId" : 4,
+    "transactionTypeId" : 4,
+    "transactionDate" : "2022-07-18",
+    "transactionAmount" : "10000.00",
+    "newBalance" : null,
+    "employee" : null,
+    "account" : null,
+    "transactionType" : null
+  } ]
+}, {
+  "id" : 5,
+  "accountTypeID" : 3,
+  "accountStatusID" : 3,
+  "accountNumberID" : 5,
+  "balance" : -25000.00,
+  "accountType" : "Money market",
+  "accountStatus" : "Suspended",
+  "accountNumber" : "03411593",
+  "customerSet" : [ {
+    "id" : 3,
+    "firstName" : "Pearl",
+    "lastName" : "Sailer",
+    "address" : "4676 Court Street",
+    "city" : "Saint Louis",
+    "state" : "Missouri",
+    "phone" : "636-689-0491",
+    "accountSet" : null
+  } ],
+  "userLoginSet" : [ {
+    "id" : 3,
+    "userNameId" : 3,
+    "username" : "pearlS1985",
+    "password" : "346P143",
+    "securityQuestionsSet" : [ {
+      "id" : 3,
+      "userLoginId" : 3,
+      "securityAnswerId" : 0,
+      "securityQuestion" : "First pet name?",
+      "securityAnswer" : "Suzi"
+    } ],
+    "accountSet" : null
+  } ],
+  "cardSet" : [ {
+    "id" : 8,
+    "cardNumberId" : 8,
+    "cardTypeId" : 2,
+    "accountId" : 5,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "336",
+    "cardNumber" : "5360484956883507",
+    "cardType" : "Credit"
+  }, {
+    "id" : 9,
+    "cardNumberId" : 9,
+    "cardTypeId" : 1,
+    "accountId" : 5,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "571",
+    "cardNumber" : "341429823553796",
+    "cardType" : "Debit"
+  } ],
+  "loanSet" : [ {
+    "id" : 2,
+    "accountId" : 5,
+    "amount" : "50000.00",
+    "rate" : "2.50",
+    "returnedAmount" : "25000.00",
+    "fromDate" : "2022-05-09"
+  } ],
+  "fixedTermDepositSet" : [ ],
+  "transactionLogSet" : [ ]
+}, {
+  "id" : 6,
+  "accountTypeID" : 3,
+  "accountStatusID" : 2,
+  "accountNumberID" : 6,
+  "balance" : 250000.00,
+  "accountType" : "Money market",
+  "accountStatus" : "Activated",
+  "accountNumber" : "41798048",
+  "customerSet" : [ {
+    "id" : 4,
+    "firstName" : "Dale",
+    "lastName" : "Range",
+    "address" : "1801 Leverton Cove Road",
+    "city" : "Springfield",
+    "state" : "Massachusetts",
+    "phone" : "413-431-3971",
+    "accountSet" : null
+  } ],
+  "userLoginSet" : [ {
+    "id" : 4,
+    "userNameId" : 4,
+    "username" : "daleR1978",
+    "password" : "364D858",
+    "securityQuestionsSet" : [ {
+      "id" : 4,
+      "userLoginId" : 4,
+      "securityAnswerId" : 0,
+      "securityQuestion" : "Favourite ice cream flavour?",
+      "securityAnswer" : "Chocolate"
+    } ],
+    "accountSet" : null
+  } ],
+  "cardSet" : [ {
+    "id" : 10,
+    "cardNumberId" : 10,
+    "cardTypeId" : 2,
+    "accountId" : 6,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "318",
+    "cardNumber" : "345707257018246",
+    "cardType" : "Credit"
+  }, {
+    "id" : 11,
+    "cardNumberId" : 11,
+    "cardTypeId" : 1,
+    "accountId" : 6,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "182",
+    "cardNumber" : "372867566112712",
+    "cardType" : "Debit"
+  }, {
+    "id" : 12,
+    "cardNumberId" : 12,
+    "cardTypeId" : 2,
+    "accountId" : 6,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "176",
+    "cardNumber" : "377238644392707",
+    "cardType" : "Credit"
+  } ],
+  "loanSet" : [ ],
+  "fixedTermDepositSet" : [ ],
+  "transactionLogSet" : [ {
+    "id" : 6,
+    "employeeId" : 0,
+    "accountId" : 6,
+    "transactionTypeId" : 2,
+    "transactionDate" : "2022-07-18",
+    "transactionAmount" : "10000.00",
+    "newBalance" : null,
+    "employee" : null,
+    "account" : null,
+    "transactionType" : null
+  } ]
+} ]

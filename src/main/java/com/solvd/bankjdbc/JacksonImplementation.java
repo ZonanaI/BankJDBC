@@ -1,10 +1,15 @@
 package com.solvd.bankjdbc;
 
+import com.solvd.bankjdbc.dao.IUserSecurityQuestionDAO;
+import com.solvd.bankjdbc.dao.mysql.UserSecurityQuestionDAO;
 import com.solvd.bankjdbc.dto.json.EmployeeDTO;
 import com.solvd.bankjdbc.dto.json.CardDTO;
+import com.solvd.bankjdbc.dto.json.AccountDTO;
+import com.solvd.bankjdbc.models.Account;
 import com.solvd.bankjdbc.models.Card;
 import com.solvd.bankjdbc.models.Employee;
 import com.solvd.bankjdbc.models.Employees;
+import com.solvd.bankjdbc.services.AccountService;
 import com.solvd.bankjdbc.services.CardService;
 import com.solvd.bankjdbc.services.EmployeeService;
 import org.apache.logging.log4j.LogManager;
@@ -24,6 +29,9 @@ public class JacksonImplementation {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         CardService cardService = new CardService();
         CardDTO cardDTO = new CardDTO();
+        AccountService accountService = new AccountService();
+        AccountDTO accountDTO = new AccountDTO();
+        IUserSecurityQuestionDAO userSecurityQuestionDAO = new UserSecurityQuestionDAO();
 
         //Employee marshalling example
         Employee employee1 = employeeService.getById(1);
@@ -59,6 +67,24 @@ public class JacksonImplementation {
         try{
             cardDTO.marshalCollection(cardSet);
         }catch (IOException e){
+            logger.error(e);
+        }
+
+        //Account marshalling example
+        Account account1 = accountService.getById(1);
+        Set<Account> accountSet;
+        accountSet = accountService.getAll();
+        accountSet.forEach(t -> t.getUserLoginSet()
+                .forEach(u -> u.setSecurityQuestionsSet(userSecurityQuestionDAO.getByUserLoginId(u.getId()))));
+
+        try {
+            accountDTO.marshal(account1);
+        } catch (IOException e){
+            logger.error(e);
+        }
+        try {
+            accountDTO.marshalCollection(accountSet);
+        } catch (IOException e){
             logger.error(e);
         }
     }

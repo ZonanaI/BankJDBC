@@ -1,0 +1,65 @@
+{
+  "id" : 1,
+  "accountTypeID" : 1,
+  "accountStatusID" : 1,
+  "accountNumberID" : 1,
+  "balance" : 0.00,
+  "accountType" : "Checking",
+  "accountStatus" : "Pre-activated",
+  "accountNumber" : "61030693",
+  "customerSet" : [ {
+    "id" : 1,
+    "firstName" : "David",
+    "lastName" : "Weathers",
+    "address" : "1452 Fairway Drive",
+    "city" : " Fairfield",
+    "state" : "California",
+    "phone" : "707-428-7549",
+    "accountSet" : null
+  } ],
+  "userLoginSet" : [ {
+    "id" : 1,
+    "userNameId" : 1,
+    "username" : "davidW1990",
+    "password" : "123d543",
+    "securityQuestionsSet" : null,
+    "accountSet" : null
+  } ],
+  "cardSet" : [ {
+    "id" : 1,
+    "cardNumberId" : 1,
+    "cardTypeId" : 1,
+    "accountId" : 1,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "719",
+    "cardNumber" : "4539669246229490",
+    "cardType" : "Debit"
+  }, {
+    "id" : 2,
+    "cardNumberId" : 2,
+    "cardTypeId" : 2,
+    "accountId" : 1,
+    "expDate" : "2025-10-31",
+    "securityNumber" : "434",
+    "cardNumber" : "4716779126770003",
+    "cardType" : "Credit"
+  }, {
+    "id" : 3,
+    "cardNumberId" : 3,
+    "cardTypeId" : 2,
+    "accountId" : 1,
+    "expDate" : "2025-05-31",
+    "securityNumber" : "488",
+    "cardNumber" : "4929846993044318",
+    "cardType" : "Credit"
+  } ],
+  "loanSet" : [ ],
+  "fixedTermDepositSet" : [ {
+    "id" : 4,
+    "accountId" : 1,
+    "amount" : "500.00",
+    "rate" : "3.50",
+    "fromDate" : "2022-08-13"
+  } ],
+  "transactionLogSet" : [ ]
+}

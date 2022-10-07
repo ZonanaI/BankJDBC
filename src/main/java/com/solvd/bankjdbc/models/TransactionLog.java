@@ -1,5 +1,12 @@
 package com.solvd.bankjdbc.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.solvd.bankjdbc.dto.json.BigDecimalDeserializer;
+import com.solvd.bankjdbc.dto.json.BigDecimalSerializer;
+import com.solvd.bankjdbc.dto.json.LocalDateTimeDeserializer;
+import com.solvd.bankjdbc.dto.json.LocalDateTimeSerializer;
 import com.solvd.bankjdbc.dto.xml.BigDecimalAdapter;
 import com.solvd.bankjdbc.dto.xml.DateTimeAdapter;
 import jakarta.xml.bind.annotation.*;
@@ -15,17 +22,31 @@ import java.time.LocalDateTime;
 public class TransactionLog implements Comparable<TransactionLog> {
 
     @XmlAttribute
+    @JsonProperty
     private int id;
+    @JsonProperty
     private int employeeId;
+    @JsonProperty
     private int accountId;
+    @JsonProperty
     private int transactionTypeId;
     @XmlJavaTypeAdapter(DateTimeAdapter.class)
+    @JsonProperty
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime transactionDate;
     @XmlJavaTypeAdapter(BigDecimalAdapter.class)
+    @JsonProperty
+    @JsonDeserialize(using = BigDecimalDeserializer.class)
+    @JsonSerialize(using = BigDecimalSerializer.class)
     private BigDecimal transactionAmount;
     @XmlJavaTypeAdapter(BigDecimalAdapter.class)
+    @JsonProperty
+    @JsonDeserialize(using = BigDecimalDeserializer.class)
+    @JsonSerialize(using = BigDecimalSerializer.class)
     private BigDecimal newBalance;
     @XmlElement (name = "employee")
+    @JsonProperty
     private Employee employee;
     @XmlTransient
     private Account account;

@@ -1,6 +1,14 @@
 package com.solvd.bankjdbc.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.solvd.bankjdbc.dto.json.BigDecimalDeserializer;
+import com.solvd.bankjdbc.dto.json.BigDecimalSerializer;
+import com.solvd.bankjdbc.dto.json.LocalDateDeserializer;
+import com.solvd.bankjdbc.dto.json.LocalDateSerializer;
 import com.solvd.bankjdbc.dto.xml.BigDecimalAdapter;
+import com.solvd.bankjdbc.dto.xml.DateAdapter;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -12,12 +20,24 @@ import java.time.LocalDate;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class FixedTermDeposit implements Comparable <FixedTermDeposit> {
     @XmlAttribute
+    @JsonProperty
     private int id;
+    @JsonProperty
     private int accountId;
     @XmlJavaTypeAdapter(BigDecimalAdapter.class)
+    @JsonProperty
+    @JsonDeserialize(using = BigDecimalDeserializer.class)
+    @JsonSerialize(using = BigDecimalSerializer.class)
     private BigDecimal amount;
     @XmlJavaTypeAdapter(BigDecimalAdapter.class)
+    @JsonProperty
+    @JsonDeserialize(using = BigDecimalDeserializer.class)
+    @JsonSerialize(using = BigDecimalSerializer.class)
     private BigDecimal rate;
+    @XmlJavaTypeAdapter(DateAdapter.class)
+    @JsonProperty
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate fromDate;
 
     //Getters and setters

@@ -1,5 +1,6 @@
 package com.solvd.bankjdbc.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.xml.bind.annotation.*;
 
 import java.util.Set;
@@ -11,11 +12,16 @@ import java.util.Set;
 public class UserLogin implements Comparable<UserLogin> {
 
     @XmlAttribute
+    @JsonProperty
     private int id;
+    @JsonProperty
     private int userNameId;
+    @JsonProperty
     private String username;
+    @JsonProperty
     private String password;
     @XmlElement(name = "securityQuestions")
+    @JsonProperty
     private Set<UserSecurityQuestion> securityQuestionsSet;
     @XmlTransient
     private Set<Account> accountSet;
