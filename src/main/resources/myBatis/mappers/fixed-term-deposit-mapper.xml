@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="com.solvd.bankjdbc.dao.IFixedTermDepositDAO">
+    <sql id = "body">
+        f.fixed_term_deposit_id as id,
+        f.account_id as accountId,
+        f.amount as amount,
+        f.rate as rate,
+        f.from_date as from_date
+    </sql>
+    <insert id = "create"
+            useGeneratedKeys = "true"
+            keyProperty = "fixed_term_deposit_id">
+        INSERT INTO FixedTermDeposit (account_id, amount, rate, from_date)
+        VALUES (#{accountId}, #{amount}, #{rate}, #{from_date})
+    </insert>
+
+    <select id = "getById"  resultMap = "fixedTermDepositResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM FixedTermDeposit f
+        WHERE fixed_term_deposit_id = #{ id }
+    </select>
+
+    <update id = "update">
+        UPDATE FixedTermDeposit SET
+        account_id = #{accountId},
+        amount = #{amount},
+        rate = #{rate},
+        from_date = #{from_date}
+        WHERE fixed_term_deposit_id = #{id}
+    </update>
+
+    <delete id = "delete">
+        DELETE FROM FixedTermDeposit WHERE fixed_term_deposit_id = #{id}
+    </delete>
+
+    <select id = "getAll"  resultMap = "fixedTermDepositResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM FixedTermDeposit f
+    </select>
+    
+    <select id = "getByAccountId"  resultMap = "fixedTermDepositResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM FixedTermDeposit f
+        WHERE f.account_id = #{ accountId }
+    </select>
+
+    <resultMap id = "fixedTermDepositResultMap"
+               type = "FixedTermDeposit"
+               autoMapping = "true">
+        <!--<id column = "id" property = "id"/>-->
+    </resultMap>
+</mapper>

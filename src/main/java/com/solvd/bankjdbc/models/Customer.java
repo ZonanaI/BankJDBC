@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.xml.bind.annotation.*;
 
 import java.util.Set;
+import java.util.TreeSet;
 
 @XmlRootElement(name = "customer")
 @XmlType(propOrder = {"id","firstName","lastName","address","city","state","phone"})
@@ -27,7 +28,7 @@ public class Customer implements Comparable <Customer> {
     private String phone;
 
     @XmlTransient
-    private Set<Account> accountSet;
+    private Set<Account> accountSet = new TreeSet<>();
 
     //Getters and setters
 
@@ -98,8 +99,11 @@ public class Customer implements Comparable <Customer> {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        getAccountSet().forEach(t -> stringBuilder.append(" account number: ").append(t.getAccountNumber())
-                .append(", "));
+        if (!getAccountSet().isEmpty()){
+            getAccountSet().forEach(t -> stringBuilder.append(" account number: ").append(t.getAccountNumber())
+                    .append(", "));
+        }
+
         return "Customer{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +

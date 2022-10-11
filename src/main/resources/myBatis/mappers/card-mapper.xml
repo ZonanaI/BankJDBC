@@ -16,8 +16,8 @@
     <insert id = "create"
             useGeneratedKeys = "true"
             keyProperty = "card_id">
-        INSERT INTO Card (first_name, last_name)
-        VALUES (#{firstName}, #{lastName})
+        INSERT INTO Card (card_number_id, card_type_id, account_id, exp_date, security_number)
+        VALUES (#{cardNumberId}, #{cardTypeId}, #{account_id}, #{exp_date}, #{security_number})
     </insert>
 
     <select id = "getById"  resultMap = "cardResultMap">
@@ -31,7 +31,6 @@
 
     <update id = "update">
         UPDATE Card SET
-        card_id = #{id},
         card_number_id = #{cardNumberId},
         card_type_id = #{cardTypeId},
         account_id = #{accountId},

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="com.solvd.bankjdbc.dao.ICustomerDAO">
+    <sql id = "body">
+        c.customer_id as id,
+        c.first_name as first_name,
+        c.last_name as last_name,
+        c.address as address,
+        c.city as city,
+        c.state as state,
+        c.phone as phone
+    </sql>
+    <insert id = "create"
+            useGeneratedKeys = "true"
+            keyProperty = "customer_id">
+        INSERT INTO Customer (first_name, last_name, address, city, state, phone)
+        VALUES (#{firstName}, #{lastName}, #{address}, #{city}, #{state}, #{phone})
+    </insert>
+
+    <select id = "getById"  resultMap = "customerResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Customer c
+        WHERE customer_id = #{ id }
+    </select>
+
+    <update id = "update">
+        UPDATE Customer SET
+        first_name = #{firstName},
+        last_name = #{lastName},
+        address = #{address},
+        city = #{city},
+        state = #{state},
+        phone = #{phone}
+        WHERE customer_id = #{id}
+    </update>
+
+    <delete id = "delete">
+        DELETE FROM Customer WHERE customer_id = #{id}
+    </delete>
+
+    <select id = "getAll"  resultMap = "customerResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Customer c
+    </select>
+
+    <select id = "getByCity"  resultMap = "customerResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Customer c
+        WHERE c.city = #{ city }
+    </select>
+
+    <select id = "getByState"  resultMap = "customerResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Customer c
+        WHERE c.state = #{ state }
+    </select>
+
+    <select id = "getByAccountId"  resultMap = "customerResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Customer c
+        WHERE c.account_id = #{ accountId }
+    </select>
+
+    <resultMap id = "customerResultMap"
+               type = "Customer"
+               autoMapping = "true">
+        <!--<id column = "id" property = "id"/>-->
+    </resultMap>
+</mapper>
