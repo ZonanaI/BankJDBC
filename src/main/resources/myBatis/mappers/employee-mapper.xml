@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="com.solvd.bankjdbc.dao.IEmployeeDAO">
+        <sql id = "body">
+            e.employee_id as employee_id,
+            e.first_name as employee_first_name,
+            e.last_name as employee_last_name
+        </sql>
+    <insert id = "create"
+            useGeneratedKeys = "true"
+            keyProperty = "employee_id">
+        INSERT INTO Employee (first_name, last_name)
+        VALUES (#{firstName}, #{lastName})
+    </insert>
+
+    <select id = "getById"  resultMap = "employeeResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Employee e WHERE employee_id = #{ id }
+    </select>
+
+    <update id = "update">
+        UPDATE Employee SET
+            first_name = #{firstName}
+            last_name = #{lastName}
+        WHERE employee_id = #{id}
+    </update>
+
+    <delete id = "delete">
+        DELETE FROM Employee WHERE employee_id = #{id}
+    </delete>
+
+    <resultMap id = "employeeResultMap"
+               type = "Employee"
+               autoMapping = "false">
+        <id column = "employee_id" property = "id"/>
+        <result column = "employee_first_name" property = "firstName"/>
+        <result column = "employee_last_name" property = "lastName"/>
+    </resultMap>
+</mapper>

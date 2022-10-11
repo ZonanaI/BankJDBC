@@ -24,7 +24,7 @@ public class CardDAO extends AbstractMySQL implements ICardDAO {
     private static final String UPDATE_CARD = "UPDATE Card SET exp_date = ?, card_number_id = ?, " +
             "card_type_id = ?, card_number_id = ? WHERE card_id = ?";
     private static final String DELETE_CARD = "DELETE FROM Card WHERE card_id = ?";
-    private static final String GET_BY_CARD_NUMBER_ID = "SELECT Card.card_id, Card.exp_date, " +
+    private static final String GET_BY_CARD_NUMBER = "SELECT Card.card_id, Card.exp_date, " +
             "Card.security_number,  Card.card_number_id, Card.card_type_id, Card.account_id, " +
             "CardNumber.card_number, CardType.card_type " +
             "FROM Card " +
@@ -185,7 +185,7 @@ public class CardDAO extends AbstractMySQL implements ICardDAO {
         Card card = new Card();
         try{
             c = getCp().getConnection();
-            ps = c.prepareStatement(GET_BY_CARD_NUMBER_ID, Statement.RETURN_GENERATED_KEYS);
+            ps = c.prepareStatement(GET_BY_CARD_NUMBER, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, cardNumber);
             rs = ps.executeQuery();
             rs.next();

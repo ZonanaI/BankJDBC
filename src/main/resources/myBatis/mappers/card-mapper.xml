@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="com.solvd.bankjdbc.dao.ICardDAO">
+    <sql id = "body">
+        c.card_id as id,
+        c.card_number_id as card_number_id,
+        c.card_type_id as card_type_id,
+        c.account_id as account_id,
+        c.exp_date as exp_date,
+        c.security_number as security_number,
+        cn.card_number as card_number,
+        ct.card_type as card_type
+    </sql>
+    <insert id = "create"
+            useGeneratedKeys = "true"
+            keyProperty = "card_id">
+        INSERT INTO Card (first_name, last_name)
+        VALUES (#{firstName}, #{lastName})
+    </insert>
+
+    <select id = "getById"  resultMap = "cardResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Card c
+        INNER JOIN CardNumber cn ON c.card_number_id = cn.card_number_id
+        INNER JOIN CardType ct ON c.card_type_id = ct.card_type_id
+        WHERE card_id = #{ id }
+    </select>
+
+    <update id = "update">
+        UPDATE Card SET
+        card_id = #{id},
+        card_number_id = #{cardNumberId},
+        card_type_id = #{cardTypeId},
+        account_id = #{accountId},
+        exp_date = #{expDate},
+        security_number = #{securityNumber}
+        WHERE card_id = #{id}
+    </update>
+
+    <delete id = "delete">
+        DELETE FROM Card WHERE card_id = #{id}
+    </delete>
+
+    <select id = "getByCardNumber"  resultMap = "cardResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Card c
+        INNER JOIN CardNumber cn ON c.card_number_id = cn.card_number_id
+        INNER JOIN CardType ct ON c.card_type_id = ct.card_type_id
+        WHERE cn.card_number = #{ cardNumber }
+    </select>
+
+    <select id = "getByAccountId"  resultMap = "cardResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Card c
+        INNER JOIN CardNumber cn ON c.card_number_id = cn.card_number_id
+        INNER JOIN CardType ct ON c.card_type_id = ct.card_type_id
+        WHERE c.account_id = #{ accountId }
+    </select>
+
+    <resultMap id = "cardResultMap"
+               type = "Card"
+               autoMapping = "true">
+        <!--<id column = "id" property = "id"/>-->
+    </resultMap>
+</mapper>

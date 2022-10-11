@@ -1,4 +1,4 @@
-package com.solvd.bankjdbc.services;
+package com.solvd.bankjdbc.services.jdbcImpl;
 
 import com.solvd.bankjdbc.dao.ILoanDAO;
 import com.solvd.bankjdbc.dao.mysql.LoanDAO;

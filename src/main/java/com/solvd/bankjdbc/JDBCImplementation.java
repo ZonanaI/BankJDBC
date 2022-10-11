@@ -1,6 +1,6 @@
 package com.solvd.bankjdbc;
 
-import com.solvd.bankjdbc.services.*;
+import com.solvd.bankjdbc.services.jdbcImpl.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

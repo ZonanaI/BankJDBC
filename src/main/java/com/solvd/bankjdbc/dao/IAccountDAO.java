@@ -6,7 +6,7 @@ import com.solvd.bankjdbc.models.Account;
 
 import java.util.Set;
 
-public interface IAccountDAO extends IBaseDao<Account>{
+public interface IAccountDAO extends IBaseDAO<Account> {
     Set<Account> getAll();
     Set<Account> getByTypeId(int typeId);
     Set<Account> getByStatusId(int statusId);

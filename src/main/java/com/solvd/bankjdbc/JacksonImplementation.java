@@ -9,9 +9,9 @@ import com.solvd.bankjdbc.models.Account;
 import com.solvd.bankjdbc.models.Card;
 import com.solvd.bankjdbc.models.Employee;
 import com.solvd.bankjdbc.models.Employees;
-import com.solvd.bankjdbc.services.AccountService;
-import com.solvd.bankjdbc.services.CardService;
-import com.solvd.bankjdbc.services.EmployeeService;
+import com.solvd.bankjdbc.services.jdbcImpl.AccountService;
+import com.solvd.bankjdbc.services.jdbcImpl.CardService;
+import com.solvd.bankjdbc.services.jdbcImpl.EmployeeService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
