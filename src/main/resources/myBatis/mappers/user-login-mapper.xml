@@ -54,7 +54,7 @@
         SELECT
         <include refid="body"/>
         FROM UserLogin ul
-        INNER JOIN UserName ON UserLogin.user_name_id = UserName.user_name_id
+        INNER JOIN UserName un ON ul.user_name_id = un.user_name_id
         INNER JOIN AccountUserLogin aul ON ul.user_login_id = aul.user_login_id
         WHERE aul.account_id = #{ accountId }
     </select>

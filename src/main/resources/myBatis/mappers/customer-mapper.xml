@@ -65,7 +65,8 @@
         SELECT
         <include refid="body"/>
         FROM Customer c
-        WHERE c.account_id = #{ accountId }
+        INNER JOIN CustomerAccount ca ON c.customer_id = ca.customer_id
+        WHERE ca.account_id = #{ accountId }
     </select>
 
     <resultMap id = "customerResultMap"

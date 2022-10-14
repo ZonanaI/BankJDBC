@@ -57,7 +57,8 @@ public class CardService implements ICardService {
         try(SqlSession session = sqlSessionFactory.openSession()) {
             ICardDAO cardDAO = session.getMapper(ICardDAO.class);
             return cardDAO.getByCardNumber(cardNumber);
-        }      }
+        }
+    }
 
     @Override
     public Set<Card> getByAccountId(int accountId) {

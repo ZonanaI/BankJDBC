@@ -44,5 +44,10 @@ public class MyBatisImpl {
         UserLoginService userLoginService = new UserLoginService();
         Set<UserLogin> userLoginSet = userLoginService.getAll();
         userLoginSet.forEach(t -> logger.info(t.toString()));
+
+        AccountService accountService = new AccountService();
+        Set<Account> accountSet = accountService.getAll();
+        accountSet.forEach(t -> logger.info(t.toString()));
+
     }
 }

@@ -14,9 +14,9 @@ import java.util.Set;
 public class Account implements Comparable<Account>{
     @XmlAttribute
     private int id;
-    private int accountTypeID;
-    private int accountStatusID;
-    private int accountNumberID;
+    private int accountTypeId;
+    private int accountStatusId;
+    private int accountNumberId;
     private BigDecimal balance;
     private String accountType;
     private String accountStatus;
@@ -43,28 +43,28 @@ public class Account implements Comparable<Account>{
         this.id = id;
     }
 
-    public int getAccountTypeID() {
-        return accountTypeID;
+    public int getAccountTypeId() {
+        return accountTypeId;
     }
 
-    public void setAccountTypeID(int accountTypeID) {
-        this.accountTypeID = accountTypeID;
+    public void setAccountTypeId(int accountTypeId) {
+        this.accountTypeId = accountTypeId;
     }
 
-    public int getAccountStatusID() {
-        return accountStatusID;
+    public int getAccountStatusId() {
+        return accountStatusId;
     }
 
-    public void setAccountStatusID(int accountStatusID) {
-        this.accountStatusID = accountStatusID;
+    public void setAccountStatusId(int accountStatusId) {
+        this.accountStatusId = accountStatusId;
     }
 
-    public int getAccountNumberID() {
-        return accountNumberID;
+    public int getAccountNumberId() {
+        return accountNumberId;
     }
 
-    public void setAccountNumberID(int accountNumberID) {
-        this.accountNumberID = accountNumberID;
+    public void setAccountNumberId(int accountNumberId) {
+        this.accountNumberId = accountNumberId;
     }
 
     public BigDecimal getBalance() {

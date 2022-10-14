@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="com.solvd.bankjdbc.dao.IAccountDAO">
+    <sql id = "body">
+        a.account_id as id,
+        a.account_number_id as accountNumberId,
+        a.account_type_id as accountTypeId,
+        a.account_status_id as accountStatusId,
+        a.balance as balance,
+        at.account_type as accountType,
+        ast.account_status as accountStatus,
+        an.account_number as accountNumber
+    </sql>
+    <insert id = "create"
+            useGeneratedKeys = "true"
+            keyProperty = "account_id">
+        INSERT INTO Account (account_number_id, account_type_id, account_status_id, balance)
+        VALUES (#{accountNumberId}, #{accountTypeId}, #{accountStatusId}, #{balance})
+    </insert>
+
+    <select id = "getById"  resultMap = "accountResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Account a
+        INNER JOIN AccountNumber an ON a.account_number_id = an.account_number_id
+        INNER JOIN AccountType at ON a.account_type_id = at.account_type_id
+        INNER JOIN AccountStatus ast ON a.account_status_id = ast.account_status_id
+        WHERE account_id = #{ id }
+    </select>
+
+    <update id = "update">
+        UPDATE Account SET
+        account_number_id = #{accountNumberId},
+        account_type_id = #{accountTypeId},
+        account_status_id = #{accountStatusId},
+        balance = #{balance}
+        WHERE account_id = #{id}
+    </update>
+
+    <delete id = "delete">
+        DELETE FROM Account WHERE account_id = #{id}
+    </delete>
+
+    <select id = "getAll"  resultMap = "accountResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Account a
+        INNER JOIN AccountNumber an ON a.account_number_id = an.account_number_id
+        INNER JOIN AccountType at ON a.account_type_id = at.account_type_id
+        INNER JOIN AccountStatus ast ON a.account_status_id = ast.account_status_id
+    </select>
+
+    <select id = "getByAccountNumber"  resultMap = "accountResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Account a
+        INNER JOIN AccountNumber an ON a.account_number_id = an.account_number_id
+        INNER JOIN AccountType at ON a.account_type_id = at.account_type_id
+        INNER JOIN AccountStatus ast ON a.account_status_id = ast.account_status_id
+        WHERE an.account_number = #{ accountNumber }
+    </select>
+
+    <select id = "getByTypeId"  resultMap = "accountResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Account a
+        INNER JOIN AccountNumber an ON a.account_number_id = an.account_number_id
+        INNER JOIN AccountType at ON a.account_type_id = at.account_type_id
+        INNER JOIN AccountStatus ast ON a.account_status_id = ast.account_status_id
+        WHERE a.account_type_id = #{ accountTypeID }
+    </select>
+
+    <select id = "getByStatusId"  resultMap = "accountResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Account a
+        INNER JOIN AccountNumber an ON a.account_number_id = an.account_number_id
+        INNER JOIN AccountType at ON a.account_type_id = at.account_type_id
+        INNER JOIN AccountStatus ast ON a.account_status_id = ast.account_status_id
+        WHERE a.account_status_id = #{ accountStatusID }
+    </select>
+
+    <select id = "getByCustomerId"  resultMap = "accountResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM Account a
+        INNER JOIN AccountNumber an ON a.account_number_id = an.account_number_id
+        INNER JOIN AccountType at ON a.account_type_id = at.account_type_id
+        INNER JOIN AccountStatus ast ON a.account_status_id = ast.account_status_id
+        INNER JOIN CustomerAccount ca ON a.account_id = ca.account_id
+        WHERE ca.customer_id = #{ customerId }
+    </select>
+
+    <resultMap id = "accountResultMap"
+               type = "Account"
+               autoMapping = "true">
+        <!--<id column = "id" property = "id"/>-->
+    </resultMap>
+</mapper>

@@ -26,9 +26,10 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="myBatis/mappers/employee-mapper.xml"/>
+        <mapper resource="myBatis/mappers/account-mapper.xml"/>
         <mapper resource="myBatis/mappers/card-mapper.xml"/>
         <mapper resource="myBatis/mappers/customer-mapper.xml"/>
+        <mapper resource="myBatis/mappers/employee-mapper.xml"/>
         <mapper resource="myBatis/mappers/fixed-term-deposit-mapper.xml"/>
         <mapper resource="myBatis/mappers/loan-mapper.xml"/>
         <mapper resource="myBatis/mappers/transaction-log-mapper.xml"/>

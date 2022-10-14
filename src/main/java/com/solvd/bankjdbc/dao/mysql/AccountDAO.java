@@ -48,7 +48,7 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
             "LEFT JOIN AccountType ON Account.account_type_id = AccountType.account_type_id " +
             "LEFT JOIN AccountStatus ON Account.account_status_id = AccountStatus.account_status_id " +
             "LEFT JOIN AccountNumber ON Account.account_number_id = AccountNumber.account_number_id " +
-            "WHERE account_status_type_id = ?";
+            "WHERE account_status_id = ?";
     private static final String GET_BY_ACCOUNT_NUMBER_ID = "SELECT Account.account_id, Account.balance, " +
             "Account.account_type_id, Account.account_status_id, Account.account_number_id, " +
             "AccountType.account_type, AccountStatus.account_status, AccountNumber.account_number  " +
@@ -84,9 +84,9 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
             c = getCp().getConnection();
             ps = c.prepareStatement(CREATE_ACCOUNT, Statement.RETURN_GENERATED_KEYS);
             ps.setBigDecimal(1, account.getBalance());
-            ps.setInt(2, account.getAccountTypeID());
-            ps.setInt(3, account.getAccountStatusID());
-            ps.setInt(4, account.getAccountNumberID());
+            ps.setInt(2, account.getAccountTypeId());
+            ps.setInt(3, account.getAccountStatusId());
+            ps.setInt(4, account.getAccountNumberId());
             rs = ps.executeQuery();
             rs.next();
         } catch (SQLException e) {
@@ -123,9 +123,9 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
             rs.next();
             account.setId(rs.getInt("account_id"));
             account.setBalance(rs.getBigDecimal("balance"));
-            account.setAccountTypeID(rs.getInt("account_type_id"));
-            account.setAccountStatusID(rs.getInt("account_status_id"));
-            account.setAccountNumberID(rs.getInt("account_number_id"));
+            account.setAccountTypeId(rs.getInt("account_type_id"));
+            account.setAccountStatusId(rs.getInt("account_status_id"));
+            account.setAccountNumberId(rs.getInt("account_number_id"));
             account.setAccountType(rs.getString("account_type"));
             account.setAccountStatus(rs.getString("account_status"));
             account.setAccountNumber(rs.getString("account_number"));
@@ -158,9 +158,9 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
             c = getCp().getConnection();
             ps = c.prepareStatement(UPDATE_ACCOUNT, Statement.RETURN_GENERATED_KEYS);
             ps.setBigDecimal(1, account.getBalance());
-            ps.setInt(2, account.getAccountTypeID());
-            ps.setInt(3,account.getAccountStatusID());
-            ps.setInt(4, account.getAccountNumberID());
+            ps.setInt(2, account.getAccountTypeId());
+            ps.setInt(3,account.getAccountStatusId());
+            ps.setInt(4, account.getAccountNumberId());
             ps.setInt(5, account.getId());
             rs = ps.executeQuery();
             rs.next();
@@ -226,9 +226,9 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
                 Account account = new Account();
                 account.setId(rs.getInt("account_id"));
                 account.setBalance(rs.getBigDecimal("balance"));
-                account.setAccountTypeID(rs.getInt("account_type_id"));
-                account.setAccountStatusID(rs.getInt("account_status_id"));
-                account.setAccountNumberID(rs.getInt("account_number_id"));
+                account.setAccountTypeId(rs.getInt("account_type_id"));
+                account.setAccountStatusId(rs.getInt("account_status_id"));
+                account.setAccountNumberId(rs.getInt("account_number_id"));
                 account.setAccountType(rs.getString("account_type"));
                 account.setAccountStatus(rs.getString("account_status"));
                 account.setAccountNumber(rs.getString("account_number"));
@@ -269,9 +269,9 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
                 Account account = new Account();
                 account.setId(rs.getInt("account_id"));
                 account.setBalance(rs.getBigDecimal("balance"));
-                account.setAccountTypeID(rs.getInt("account_type_id"));
-                account.setAccountStatusID(rs.getInt("account_status_id"));
-                account.setAccountNumberID(rs.getInt("account_number_id"));
+                account.setAccountTypeId(rs.getInt("account_type_id"));
+                account.setAccountStatusId(rs.getInt("account_status_id"));
+                account.setAccountNumberId(rs.getInt("account_number_id"));
                 account.setAccountType(rs.getString("account_type"));
                 account.setAccountStatus(rs.getString("account_status"));
                 account.setAccountNumber(rs.getString("account_number"));
@@ -312,9 +312,9 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
                 Account account = new Account();
                 account.setId(rs.getInt("account_id"));
                 account.setBalance(rs.getBigDecimal("balance"));
-                account.setAccountTypeID(rs.getInt("account_type_id"));
-                account.setAccountStatusID(rs.getInt("account_status_id"));
-                account.setAccountNumberID(rs.getInt("account_number_id"));
+                account.setAccountTypeId(rs.getInt("account_type_id"));
+                account.setAccountStatusId(rs.getInt("account_status_id"));
+                account.setAccountNumberId(rs.getInt("account_number_id"));
                 account.setAccountType(rs.getString("account_type"));
                 account.setAccountStatus(rs.getString("account_status"));
                 account.setAccountNumber(rs.getString("account_number"));
@@ -355,9 +355,9 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
                 Account account = new Account();
                 account.setId(rs.getInt("account_id"));
                 account.setBalance(rs.getBigDecimal("balance"));
-                account.setAccountTypeID(rs.getInt("account_type_id"));
-                account.setAccountStatusID(rs.getInt("account_status_id"));
-                account.setAccountNumberID(rs.getInt("account_number_id"));
+                account.setAccountTypeId(rs.getInt("account_type_id"));
+                account.setAccountStatusId(rs.getInt("account_status_id"));
+                account.setAccountNumberId(rs.getInt("account_number_id"));
                 account.setAccountType(rs.getString("account_type"));
                 account.setAccountStatus(rs.getString("account_status"));
                 account.setAccountNumber(rs.getString("account_number"));
@@ -398,9 +398,9 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
                 Account account = new Account();
                 account.setId(rs.getInt("account_id"));
                 account.setBalance(rs.getBigDecimal("balance"));
-                account.setAccountTypeID(rs.getInt("account_type_id"));
-                account.setAccountStatusID(rs.getInt("account_status_id"));
-                account.setAccountNumberID(rs.getInt("account_number_id"));
+                account.setAccountTypeId(rs.getInt("account_type_id"));
+                account.setAccountStatusId(rs.getInt("account_status_id"));
+                account.setAccountNumberId(rs.getInt("account_number_id"));
                 account.setAccountType(rs.getString("account_type"));
                 account.setAccountStatus(rs.getString("account_status"));
                 account.setAccountNumber(rs.getString("account_number"));
@@ -440,9 +440,9 @@ public class AccountDAO extends AbstractMySQL implements IAccountDAO {
             rs.next();
             account.setId(rs.getInt("account_id"));
             account.setBalance(rs.getBigDecimal("balance"));
-            account.setAccountTypeID(rs.getInt("account_type_id"));
-            account.setAccountStatusID(rs.getInt("account_status_id"));
-            account.setAccountNumberID(rs.getInt("account_number_id"));
+            account.setAccountTypeId(rs.getInt("account_type_id"));
+            account.setAccountStatusId(rs.getInt("account_status_id"));
+            account.setAccountNumberId(rs.getInt("account_number_id"));
             account.setAccountType(rs.getString("account_type"));
             account.setAccountStatus(rs.getString("account_status"));
             account.setAccountNumber(rs.getString("account_number"));
