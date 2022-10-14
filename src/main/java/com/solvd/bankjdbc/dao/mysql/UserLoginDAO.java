@@ -245,7 +245,7 @@ public class UserLoginDAO extends AbstractMySQL implements IUserLoginDAO {
     }
 
     @Override
-    public Set<UserLogin> getByAccountId(int id) {
+    public Set<UserLogin> getByAccountId(int accountId) {
         Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -253,7 +253,7 @@ public class UserLoginDAO extends AbstractMySQL implements IUserLoginDAO {
         try{
             c = getCp().getConnection();
             ps = c.prepareStatement(GET_BY_ACCOUNT_NUMBER_ID, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1,id);
+            ps.setInt(1, accountId);
             rs = ps.executeQuery();
 
             while (rs.next()){

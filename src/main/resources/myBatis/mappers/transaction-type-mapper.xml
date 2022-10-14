@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="com.solvd.bankjdbc.dao.ITransactionTypeDAO">
+    <sql id = "body">
+        tt.transaction_type_id as id,
+        tt.transaction_name as name,
+        tt.fee_amount as feeAmount,
+        tt.transaction_description as description
+    </sql>
+    <insert id = "create"
+            useGeneratedKeys = "true"
+            keyProperty = "transaction_type_id">
+        INSERT INTO TransactionType (transaction_name, fee_amount, transaction_description)
+        VALUES (#{name}, #{feeAmount}, #{description})
+    </insert>
+
+    <select id = "getById"  resultMap = "transactionTypeResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM TransactionType tt
+        WHERE transaction_type_id = #{ id }
+    </select>
+
+    <update id = "update">
+        UPDATE TransactionType SET
+        transaction_name = #{name}
+        fee_amount = #{feeAmount},
+        transaction_description = #{description}
+        WHERE transaction_type_id = #{id}
+    </update>
+
+    <delete id = "delete">
+        DELETE FROM TransactionType WHERE transaction_type_id = #{id}
+    </delete>
+
+    <resultMap id = "transactionTypeResultMap"
+               type = "TransactionType"
+               autoMapping = "true">
+        <!--<id column = "id" property = "id"/>-->
+    </resultMap>
+</mapper>

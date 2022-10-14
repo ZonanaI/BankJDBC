@@ -28,7 +28,7 @@ public class TransactionLogDAO extends AbstractMySQL implements ITransactionLogD
     private static final String GET_ALL = "SELECT transaction_log_id, transaction_date, " +
             "transaction_amount, new_balance, employee_id, account_id, transaction_type_id " +
             "FROM TransactionLog";
-    private static final String GET_BY_DATES = "SELECT transaction_log_id, transaction_date, " +
+    private static final String GET_BY_DATE_TIME_RANGE = "SELECT transaction_log_id, transaction_date, " +
             "transaction_amount, new_balance, employee_id, account_id, transaction_type_id " +
             "FROM TransactionLog " +
             "WHERE transaction_date BETWEEN ? AND ? " +
@@ -232,7 +232,7 @@ public class TransactionLogDAO extends AbstractMySQL implements ITransactionLogD
         Set<TransactionLog> transactionLogTreeSet = new TreeSet<>();
         try{
             c = getCp().getConnection();
-            ps = c.prepareStatement(GET_BY_DATES, Statement.RETURN_GENERATED_KEYS);
+            ps = c.prepareStatement(GET_BY_DATE_TIME_RANGE, Statement.RETURN_GENERATED_KEYS);
             ps.setObject(1, firstDateTime);
             ps.setObject(2, lastDateTime);
             rs = ps.executeQuery();

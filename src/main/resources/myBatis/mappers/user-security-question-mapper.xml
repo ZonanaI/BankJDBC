@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="com.solvd.bankjdbc.dao.IUserSecurityQuestionDAO">
+    <sql id = "body">
+        usq.user_security_question_id as id,
+        usq.user_login_id as userLoginId,
+        usa.user_security_answer_id as securityAnswerId,
+        usq.user_security_question as securityQuestion,
+        usa.user_security_answer as securityAnswer
+    </sql>
+    <insert id = "create"
+            useGeneratedKeys = "true"
+            keyProperty = "user_security_question_id">
+        INSERT INTO UserSecurityQuestion (user_login_id, user_security_question)
+        VALUES (#{userLoginId}, #{securityQuestion})
+    </insert>
+
+    <select id = "getById"  resultMap = "userSecurityQuestionResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM UserSecurityQuestion usq
+        INNER JOIN UserSecurityAnswer usa ON usq.user_security_question_id = usa.user_security_question_id
+        WHERE user_security_question_id = #{ id }
+    </select>
+
+    <update id = "update">
+        UPDATE UserSecurityQuestion SET
+        user_login_id = #{userLoginId}
+        user_security_question = #{securityQuestion}
+        WHERE user_security_question_id = #{id}
+    </update>
+
+    <delete id = "delete">
+        DELETE FROM UserSecurityQuestion WHERE user_security_question_id = #{id}
+    </delete>
+
+    <select id = "getByUserLoginId"  resultMap = "userSecurityQuestionResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM UserSecurityQuestion usq
+        INNER JOIN UserSecurityAnswer usa ON usq.user_security_question_id = usa.user_security_question_id
+        INNER JOIN UserLogin ul ON usq.user_login_id = ul.user_login_id
+        WHERE usq.user_login_id = #{ userName }
+    </select>
+
+    <resultMap id = "userSecurityQuestionResultMap"
+               type = "UserSecurityQuestion"
+               autoMapping = "true">
+        <!--<id column = "id" property = "id"/>-->
+    </resultMap>
+</mapper>

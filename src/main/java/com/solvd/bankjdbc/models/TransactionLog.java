@@ -144,7 +144,9 @@ public class TransactionLog implements Comparable<TransactionLog> {
     @Override
     public String toString() {
         StringBuilder accountStringBuilder = new StringBuilder();
-        accountStringBuilder.append(" account number: ").append(account.getAccountNumber());
+        if (account != null){
+            accountStringBuilder.append(" account number: ").append(account.getAccountNumber());
+        }
         StringBuilder employeeStringBuilder = new StringBuilder();
         if(employee!=null){
             employeeStringBuilder.append(" employee name: ").append(employee.getFirstName()).append(" ")

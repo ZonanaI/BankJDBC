@@ -1,13 +1,8 @@
 package com.solvd.bankjdbc;
 
-import com.solvd.bankjdbc.models.Card;
-import com.solvd.bankjdbc.models.Customer;
-import com.solvd.bankjdbc.models.Employee;
-import com.solvd.bankjdbc.models.FixedTermDeposit;
-import com.solvd.bankjdbc.services.myBatisImpl.CardService;
-import com.solvd.bankjdbc.services.myBatisImpl.CustomerService;
-import com.solvd.bankjdbc.services.myBatisImpl.EmployeeService;
-import com.solvd.bankjdbc.services.myBatisImpl.FixedTermDepositService;
+import com.solvd.bankjdbc.models.*;
+import com.solvd.bankjdbc.services.jdbcImpl.LoanService;
+import com.solvd.bankjdbc.services.myBatisImpl.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -37,5 +32,17 @@ public class MyBatisImpl {
         FixedTermDepositService fixedTermDepositService = new FixedTermDepositService();
         Set<FixedTermDeposit> fixedTermDepositSet = fixedTermDepositService.getAll();
         fixedTermDepositSet.forEach(t-> logger.info(t.toString()));
+
+        LoanService loanService = new LoanService();
+        Set<Loan> loanSet = loanService.getAll();
+        loanSet.forEach(t-> logger.info(t.toString()));
+
+        TransactionLogService transactionLogService = new TransactionLogService();
+        Set<TransactionLog> transactionLogSet = transactionLogService.getAll();
+        transactionLogSet.forEach(t -> logger.info(t.toString()));
+
+        UserLoginService userLoginService = new UserLoginService();
+        Set<UserLogin> userLoginSet = userLoginService.getAll();
+        userLoginSet.forEach(t -> logger.info(t.toString()));
     }
 }

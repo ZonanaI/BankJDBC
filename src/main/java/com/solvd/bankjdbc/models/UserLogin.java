@@ -87,7 +87,9 @@ public class UserLogin implements Comparable<UserLogin> {
         getSecurityQuestionsSet().forEach(t-> secQuestionStringBuilder.append(" security question: ")
                 .append(t.getSecurityQuestion()).append(" security answer: ").append(t.getSecurityAnswer()).append(", "));
         StringBuilder accountStringBuilder = new StringBuilder();
-        getAccountSet().forEach(t-> accountStringBuilder.append(" account number: ").append(t.getAccountNumber()));
+        if (accountSet != null){
+            getAccountSet().forEach(t -> accountStringBuilder.append(" account number: ").append(t.getAccountNumber()));
+        }
         return "UserLogin{" +
                 "id=" + id +
                 ", userNameId=" + userNameId +

@@ -31,6 +31,10 @@
         <mapper resource="myBatis/mappers/customer-mapper.xml"/>
         <mapper resource="myBatis/mappers/fixed-term-deposit-mapper.xml"/>
         <mapper resource="myBatis/mappers/loan-mapper.xml"/>
+        <mapper resource="myBatis/mappers/transaction-log-mapper.xml"/>
+        <mapper resource="myBatis/mappers/transaction-type-mapper.xml"/>
+        <mapper resource="myBatis/mappers/user-login-mapper.xml"/>
+        <mapper resource="myBatis/mappers/user-security-question-mapper.xml"/>
     </mappers>
 
 </configuration>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="com.solvd.bankjdbc.dao.IUserLoginDAO">
+    <sql id = "body">
+        ul.user_login_id as id,
+        ul.user_name_id as userNameId,
+        ul.user_password as password,
+        un.user_name as userName
+    </sql>
+    <insert id = "create"
+            useGeneratedKeys = "true"
+            keyProperty = "user_login_id">
+        INSERT INTO UserLogin (user_name_id, user_password)
+        VALUES (#{userNameId}, #{password})
+    </insert>
+
+    <select id = "getById"  resultMap = "userLoginResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM UserLogin ul
+        INNER JOIN UserName un ON ul.user_name_id = un.user_name_id
+        WHERE user_login_id = #{ id }
+    </select>
+
+    <update id = "update">
+        UPDATE UserLogin SET
+        user_name_id = #{userNameId}
+        user_password = #{password}
+        WHERE user_login_id = #{id}
+    </update>
+
+    <delete id = "delete">
+        DELETE FROM UserLogin WHERE user_login_id = #{id}
+    </delete>
+
+    <select id = "getAll"  resultMap = "userLoginResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM UserLogin ul
+        INNER JOIN UserName un ON ul.user_name_id = un.user_name_id
+    </select>
+
+    <select id = "getByUserName"  resultMap = "userLoginResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM UserLogin ul
+        INNER JOIN UserName un ON ul.user_name_id = un.user_name_id
+        WHERE un.user_name = #{ userName }
+    </select>
+
+    <select id = "getByAccountId"  resultMap = "userLoginResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM UserLogin ul
+        INNER JOIN UserName ON UserLogin.user_name_id = UserName.user_name_id
+        INNER JOIN AccountUserLogin aul ON ul.user_login_id = aul.user_login_id
+        WHERE aul.account_id = #{ accountId }
+    </select>
+
+    <resultMap id = "userLoginResultMap"
+               type = "UserLogin"
+               autoMapping = "true">
+        <!--<id column = "id" property = "id"/>-->
+    </resultMap>
+</mapper>

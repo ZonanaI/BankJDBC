@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace ="com.solvd.bankjdbc.dao.ITransactionLogDAO">
+    <sql id = "body">
+        tl.transaction_log_id as id,
+        tl.employee_id as employeeId,
+        tl.account_id as accountId,
+        tl.transaction_type_id as transactionTypeId,
+        tl.transaction_date as transactionDate,
+        tl.transaction_amount as transactionAmount,
+        tl.new_balance as newBalance
+    </sql>
+    <insert id = "create"
+            useGeneratedKeys = "true"
+            keyProperty = "transaction_log_id">
+        INSERT INTO TransactionLog (employee_id, account_id, transaction_type_id, transaction_date,transaction_amount, 
+        new_balance)
+        VALUES (#{employeeId}, #{accountId}, #{transactionTypeId}, #{transactionDate}, #{transactionAmount}, 
+        #{newBalance})
+    </insert>
+
+    <select id = "getById"  resultMap = "transactionLogResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM TransactionLog tl
+        WHERE transaction_log_id = #{ id }
+    </select>
+
+    <update id = "update">
+        UPDATE TransactionLog SET
+        employee_id = #{employeeId}
+        account_id = #{accountId},
+        transaction_type_id = #{transactionTypeId},
+        transaction_date = #{transactionDate},
+        transaction_amount = #{transactionAmount},
+        new_balance = #{newBalance}
+        WHERE transaction_log_id = #{id}
+    </update>
+
+    <delete id = "delete">
+        DELETE FROM TransactionLog WHERE transaction_log_id = #{id}
+    </delete>
+
+    <select id = "getAll"  resultMap = "transactionLogResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM TransactionLog tl
+    </select>
+
+    <select id = "getByDateTimeRange"  resultMap = "transactionLogResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM TransactionLog tl
+        WHERE transaction_date BETWEEN #{ firstDateTime } AND #{ lastDateTime }
+    </select>
+
+    <select id = "getByTypeId"  resultMap = "transactionLogResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM TransactionLog tl
+        WHERE tl.transaction_type_id = #{ transactionTypeId }
+    </select>
+
+    <select id = "getByAccountId"  resultMap = "transactionLogResultMap">
+        SELECT
+        <include refid="body"/>
+        FROM TransactionLog tl
+        WHERE tl.account_id = #{ accountId }
+    </select>
+
+    <resultMap id = "transactionLogResultMap"
+               type = "TransactionLog"
+               autoMapping = "true">
+        <!--<id column = "id" property = "id"/>-->
+    </resultMap>
+</mapper>

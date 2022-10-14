@@ -211,7 +211,7 @@ public class LoanDAO extends AbstractMySQL implements ILoanDAO {
     }
 
     @Override
-    public Set<Loan> getByAccountId(int id) {
+    public Set<Loan> getByAccountId(int accountId) {
         Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -219,7 +219,7 @@ public class LoanDAO extends AbstractMySQL implements ILoanDAO {
         try{
             c = getCp().getConnection();
             ps = c.prepareStatement(GET_BY_ACCOUNT_ID, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1,id);
+            ps.setInt(1, accountId);
             rs = ps.executeQuery();
 
             while (rs.next()){
