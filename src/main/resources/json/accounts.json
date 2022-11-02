@@ -1,8 +1,8 @@
 [ {
   "id" : 1,
-  "accountTypeID" : 1,
-  "accountStatusID" : 1,
-  "accountNumberID" : 1,
+  "accountTypeId" : 1,
+  "accountStatusId" : 1,
+  "accountNumberId" : 1,
   "balance" : 0.00,
   "accountType" : "Checking",
   "accountStatus" : "Pre-activated",
@@ -15,7 +15,7 @@
     "city" : " Fairfield",
     "state" : "California",
     "phone" : "707-428-7549",
-    "accountSet" : null
+    "accountSet" : [ ]
   } ],
   "userLoginSet" : [ {
     "id" : 1,
@@ -70,9 +70,9 @@
   "transactionLogSet" : [ ]
 }, {
   "id" : 2,
-  "accountTypeID" : 2,
-  "accountStatusID" : 2,
-  "accountNumberID" : 2,
+  "accountTypeId" : 2,
+  "accountStatusId" : 2,
+  "accountNumberId" : 2,
   "balance" : 50000.00,
   "accountType" : "Savings",
   "accountStatus" : "Activated",
@@ -85,7 +85,7 @@
     "city" : " Fairfield",
     "state" : "California",
     "phone" : "707-428-7549",
-    "accountSet" : null
+    "accountSet" : [ ]
   }, {
     "id" : 2,
     "firstName" : "Lynn",
@@ -94,7 +94,7 @@
     "city" : "Cincinnati",
     "state" : "Kentucky",
     "phone" : "859-802-2180",
-    "accountSet" : null
+    "accountSet" : [ ]
   } ],
   "userLoginSet" : [ {
     "id" : 1,
@@ -164,9 +164,9 @@
   } ]
 }, {
   "id" : 3,
-  "accountTypeID" : 2,
-  "accountStatusID" : 2,
-  "accountNumberID" : 3,
+  "accountTypeId" : 2,
+  "accountStatusId" : 2,
+  "accountNumberId" : 3,
   "balance" : 20000.00,
   "accountType" : "Savings",
   "accountStatus" : "Activated",
@@ -179,7 +179,7 @@
     "city" : "Cincinnati",
     "state" : "Kentucky",
     "phone" : "859-802-2180",
-    "accountSet" : null
+    "accountSet" : [ ]
   } ],
   "userLoginSet" : [ {
     "id" : 2,
@@ -244,9 +244,9 @@
   } ]
 }, {
   "id" : 4,
-  "accountTypeID" : 3,
-  "accountStatusID" : 2,
-  "accountNumberID" : 4,
+  "accountTypeId" : 3,
+  "accountStatusId" : 2,
+  "accountNumberId" : 4,
   "balance" : 150000.00,
   "accountType" : "Money market",
   "accountStatus" : "Activated",
@@ -259,7 +259,7 @@
     "city" : "Springfield",
     "state" : "Massachusetts",
     "phone" : "413-431-3971",
-    "accountSet" : null
+    "accountSet" : [ ]
   } ],
   "userLoginSet" : [ {
     "id" : 4,
@@ -333,9 +333,9 @@
   } ]
 }, {
   "id" : 5,
-  "accountTypeID" : 3,
-  "accountStatusID" : 3,
-  "accountNumberID" : 5,
+  "accountTypeId" : 3,
+  "accountStatusId" : 3,
+  "accountNumberId" : 5,
   "balance" : -25000.00,
   "accountType" : "Money market",
   "accountStatus" : "Suspended",
@@ -348,7 +348,7 @@
     "city" : "Saint Louis",
     "state" : "Missouri",
     "phone" : "636-689-0491",
-    "accountSet" : null
+    "accountSet" : [ ]
   } ],
   "userLoginSet" : [ {
     "id" : 3,
@@ -395,9 +395,9 @@
   "transactionLogSet" : [ ]
 }, {
   "id" : 6,
-  "accountTypeID" : 3,
-  "accountStatusID" : 2,
-  "accountNumberID" : 6,
+  "accountTypeId" : 3,
+  "accountStatusId" : 2,
+  "accountNumberId" : 6,
   "balance" : 250000.00,
   "accountType" : "Money market",
   "accountStatus" : "Activated",
@@ -410,7 +410,7 @@
     "city" : "Springfield",
     "state" : "Massachusetts",
     "phone" : "413-431-3971",
-    "accountSet" : null
+    "accountSet" : [ ]
   } ],
   "userLoginSet" : [ {
     "id" : 4,

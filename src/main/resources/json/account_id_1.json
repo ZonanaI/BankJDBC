@@ -1,8 +1,8 @@
 {
   "id" : 1,
-  "accountTypeID" : 1,
-  "accountStatusID" : 1,
-  "accountNumberID" : 1,
+  "accountTypeId" : 1,
+  "accountStatusId" : 1,
+  "accountNumberId" : 1,
   "balance" : 0.00,
   "accountType" : "Checking",
   "accountStatus" : "Pre-activated",
@@ -15,7 +15,7 @@
     "city" : " Fairfield",
     "state" : "California",
     "phone" : "707-428-7549",
-    "accountSet" : null
+    "accountSet" : [ ]
   } ],
   "userLoginSet" : [ {
     "id" : 1,
